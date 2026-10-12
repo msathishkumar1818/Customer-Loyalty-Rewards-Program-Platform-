@@ -20,7 +20,7 @@
   const savedDir = localStorage.getItem('perkpulse_dir') || 'ltr';
   document.documentElement.setAttribute('dir', savedDir);
 
-  document.addEventListener('DOMContentLoaded', () => {
+  function initAll() {
     if (savedTheme === 'dark' && document.body) {
       document.body.classList.add('dark');
       document.body.classList.remove('light');
@@ -40,24 +40,34 @@
     initBillingToggle();
     initFaqAccordion();
     initDashboardTabs();
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAll);
+  } else {
+    initAll();
+  }
 
   // 2. Branded Loader
   function initLoader() {
     const loader = document.getElementById('global-loader');
     if (!loader) return;
 
+    let hidden = false;
     const hideLoader = () => {
+      if (hidden) return;
+      hidden = true;
       loader.classList.add('loaded');
       setTimeout(() => {
-        if (loader.parentNode) loader.parentNode.removeChild(loader);
+        if (loader && loader.parentNode) loader.parentNode.removeChild(loader);
       }, 400);
     };
 
     if (document.readyState === 'complete') {
-      setTimeout(hideLoader, 250);
+      setTimeout(hideLoader, 150);
     } else {
-      window.addEventListener('load', () => setTimeout(hideLoader, 250));
+      window.addEventListener('load', () => setTimeout(hideLoader, 150));
+      setTimeout(hideLoader, 500);
     }
   }
 
@@ -177,8 +187,8 @@
 
   // 6. Mobile Navigation Drawer & Accordion (Strict Click-Only Toggle & Auto-Close)
   function initMobileNav() {
-    const openBtn = document.getElementById('mobileMenuOpenBtn');
-    const closeBtn = document.getElementById('mobileMenuCloseBtn');
+    const openBtns = document.querySelectorAll('.mobile-toggle-btn, #mobileMenuOpenBtn');
+    const closeBtns = document.querySelectorAll('.mobile-close-btn, #mobileMenuCloseBtn');
     const drawer = document.getElementById('mobileNavDrawer');
     const backdrop = document.getElementById('mobileNavBackdrop');
     const homeAccordionBtn = document.getElementById('mobileHomeAccordionBtn');
@@ -202,8 +212,7 @@
       drawer.classList.add('open');
       if (backdrop) backdrop.classList.add('open');
       document.body.style.overflow = 'hidden';
-      if (openBtn) openBtn.setAttribute('aria-expanded', 'true');
-      // Always ensure Home dropdown starts closed when drawer opens
+      openBtns.forEach((btn) => btn.setAttribute('aria-expanded', 'true'));
       resetHomeAccordion();
     };
 
@@ -211,14 +220,39 @@
       drawer.classList.remove('open');
       if (backdrop) backdrop.classList.remove('open');
       document.body.style.overflow = '';
-      if (openBtn) openBtn.setAttribute('aria-expanded', 'false');
-      // Automatically close Home dropdown on drawer close
+      openBtns.forEach((btn) => btn.setAttribute('aria-expanded', 'false'));
       resetHomeAccordion();
     };
 
-    if (openBtn) openBtn.addEventListener('click', openDrawer);
-    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-    if (backdrop) backdrop.addEventListener('click', closeDrawer);
+    const toggleDrawer = (e) => {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      if (drawer.classList.contains('open')) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
+    };
+
+    openBtns.forEach((btn) => {
+      btn.addEventListener('click', toggleDrawer);
+    });
+
+    closeBtns.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        if (e) e.preventDefault();
+        closeDrawer();
+      });
+    });
+
+    if (backdrop) {
+      backdrop.addEventListener('click', (e) => {
+        if (e) e.preventDefault();
+        closeDrawer();
+      });
+    }
 
     // Close drawer on escape key
     document.addEventListener('keydown', (e) => {

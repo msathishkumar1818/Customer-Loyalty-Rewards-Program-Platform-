@@ -651,11 +651,15 @@ html[dir="rtl"] .header-cta-btn:hover svg {
   border-radius: 0.5rem;
   color: var(--text-main);
   cursor: pointer;
+  pointer-events: auto !important;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.mobile-toggle-btn svg {
-  width: 20px;
-  height: 20px;
+.mobile-toggle-btn svg,
+.mobile-toggle-btn path,
+.mobile-toggle-btn line {
+  pointer-events: none;
 }
 
 /* Mobile Navigation Drawer */
@@ -668,12 +672,14 @@ html[dir="rtl"] .header-cta-btn:hover svg {
   z-index: 1050;
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .mobile-nav-backdrop.open {
-  opacity: 1;
-  visibility: visible;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
 }
 
 .mobile-nav-drawer {
@@ -691,6 +697,7 @@ html[dir="rtl"] .header-cta-btn:hover svg {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  pointer-events: none;
 }
 
 html[dir="rtl"] .mobile-nav-drawer {
@@ -701,8 +708,11 @@ html[dir="rtl"] .mobile-nav-drawer {
   transform: translateX(-100%);
 }
 
-.mobile-nav-drawer.open {
-  transform: translateX(0);
+.mobile-nav-drawer.open,
+html[dir="rtl"] .mobile-nav-drawer.open {
+  transform: translateX(0) !important;
+  pointer-events: auto !important;
+  visibility: visible !important;
 }
 
 .mobile-nav-header {
