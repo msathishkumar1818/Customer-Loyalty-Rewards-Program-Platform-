@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PerkPulse Features - Enterprise Omnichannel Loyalty Architecture</title>
+  <meta name="description"
+    content="Explore PerkPulse's complete feature suite: POS cashier overlays, contactless mobile passes, multi-tier ladders, real-time cashback, and fraud defense.">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="PerkPulse Features - Enterprise Omnichannel Loyalty Architecture">
+  <meta property="og:description"
+    content="High-concurrency retail loyalty infrastructure and multi-location rewards operating system.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234f46e5'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
+
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS CDN (Configured with Custom Colors) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            },
+            accent: {
+              500: '#10b981',
+              600: '#059669',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+
+<body class="bg-body text-main transition-colors duration-200">
+
+  <!-- Skip to Main Content Accessibility Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Global Reading Progress Bar -->
+  <div id="readingProgressBar" class="reading-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+    aria-valuemax="100" aria-label="Page reading progress">
+  </div>
+
+  <!-- =========================================================================
+       GLOBAL UNIFIED FIXED HEADER
+       ========================================================================= -->
+  <header class="site-header" id="main-header">
+    <div class="header-container">
+
+      <!-- Logo + Brand -->
+      <a href="index.html" class="brand-link" aria-label="PerkPulse Homepage">
+        <div class="brand-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon
+              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+            </polygon>
+          </svg>
+        </div>
+        <div class="brand-name">
+          Perk<span>Pulse</span>
+
+        </div>
+      </a>
+
+      <!-- Desktop Navigation (6 Primary Items) -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <!-- 1. Home (Dropdown) -->
+        <div class="nav-item">
+          <button type="button" class="nav-link dropdown-btn" id="homeDropdownBtn" aria-expanded="false"
+            aria-haspopup="true">
+            <span>Home</span>
+            <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="dropdown-menu" id="homeDropdownMenu" role="menu" aria-labelledby="homeDropdownBtn">
+            <a href="index.html" class="dropdown-link" role="menuitem">
+              <span>Home 1</span>
+              <span class="dropdown-badge">Retail Tech</span>
+            </a>
+            <a href="home-2.html" class="dropdown-link" role="menuitem">
+              <span>Home 2</span>
+              <span class="dropdown-badge">Enterprise OS</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. About -->
+        <div class="nav-item">
+          <a href="about.html" class="nav-link">About</a>
+        </div>
+
+        <!-- 3. Features (Active) -->
+        <div class="nav-item">
+          <a href="features.html" class="nav-link active">Features</a>
+        </div>
+
+        <!-- 4. Pricing Plans -->
+        <div class="nav-item">
+          <a href="pricing.html" class="nav-link">Pricing Plans</a>
+        </div>
+
+        <!-- 5. Contact -->
+        <div class="nav-item">
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+
+        <!-- 6. Dashboard -->
+        <div class="nav-item">
+          <a href="dashboard.html" class="nav-link">Dashboard</a>
+        </div>
+      </nav>
+
+      <!-- Desktop Actions: RTL/LTR, Dark Mode, Login, CTA Button -->
+      <div class="header-actions">
+        <!-- RTL/LTR Toggle -->
+        <button type="button" class="action-icon-btn js-rtl-toggle desktop-utility-actions" title="Toggle RTL/LTR"
+          aria-label="Toggle Text Direction">
+          <span class="rtl-label-text font-bold text-xs tracking-wider">RTL</span>
+        </button>
+
+        <!-- Dark Mode Toggle -->
+        <button type="button" class="action-icon-btn js-theme-toggle desktop-utility-actions"
+          title="Toggle Dark/Light Mode" aria-label="Toggle Dark Mode">
+          <svg class="theme-icon-sun hidden dark:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon-moon block dark:hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Login Link -->
+        <a href="login.html" class="header-login-link desktop-utility-actions" id="headerLoginBtn">
+          <span>Login</span>
+        </a>
+
+        <!-- Header CTA Button -->
+        <a href="login.html" class="header-cta-btn" id="headerCtaBtn">
+          <span>Get Started</span>
+          <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button type="button" class="mobile-toggle-btn" id="mobileMenuOpenBtn" aria-label="Open Mobile Navigation Menu"
+          aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Backdrop & Menu -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop" aria-hidden="true"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation Menu">
+    <div class="mobile-nav-header">
+      <div class="flex items-center gap-2">
+        <div class="brand-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon
+              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+            </polygon>
+          </svg>
+        </div>
+        <div class="mobile-brand-meta">
+          <span class="brand-title">PerkPulse</span>
+          <span class="brand-tagline">Retail Loyalty </span>
+        </div>
+      </div>
+      <button type="button" class="mobile-close-btn" id="mobileMenuCloseBtn" aria-label="Close Mobile Navigation">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Nav Items -->
+    <ul class="mobile-nav-body">
+      <!-- 1. Home Accordion (Click only) -->
+      <li class="mobile-nav-item">
+        <button type="button" class="mobile-nav-link" id="mobileHomeAccordionBtn" aria-expanded="false">
+          <span>Home</span>
+          <svg class="mobile-nav-arrow w-4 h-4 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+        <div class="mobile-accordion-content" id="mobileHomeAccordion">
+          <a href="index.html" class="mobile-sub-link">
+            <span>Home 1 (Retail Tech)</span>
+          </a>
+          <a href="home-2.html" class="mobile-sub-link">
+            <span>Home 2 (Enterprise OS)</span>
+          </a>
+        </div>
+      </li>
+
+      <!-- 2. About -->
+      <li class="mobile-nav-item">
+        <a href="about.html" class="mobile-nav-link">About</a>
+      </li>
+
+      <!-- 3. Features (Active) -->
+      <li class="mobile-nav-item">
+        <a href="features.html" class="mobile-nav-link font-bold text-indigo-600 dark:text-indigo-400">Features</a>
+      </li>
+
+      <!-- 4. Pricing -->
+      <li class="mobile-nav-item">
+        <a href="pricing.html" class="mobile-nav-link">Pricing Plans</a>
+      </li>
+
+      <!-- 5. Contact -->
+      <li class="mobile-nav-item">
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+      </li>
+
+      <!-- 6. Dashboard -->
+      <li class="mobile-nav-item">
+        <a href="dashboard.html" class="mobile-nav-link">Dashboard</a>
+      </li>
+    </ul>
+
+    <div class="mobile-nav-footer">
+      <div class="mobile-controls-row">
+        <button type="button" class="mobile-control-btn js-rtl-toggle">
+          <span class="font-bold text-xs">RTL Mode</span>
+        </button>
+        <button type="button" class="mobile-control-btn js-theme-toggle">
+          <span class="dark:hidden">Dark Mode</span>
+          <span class="hidden dark:inline">Light Mode</span>
+        </button>
+      </div>
+      <div class="flex flex-col gap-2.5">
+        <a href="login.html" class="btn-primary w-full justify-center text-center py-2.5 text-sm">
+          <span>Get Started</span>
+          <svg class="w-4 h-4 ml-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+        <a href="login.html" class="mobile-login-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+            <polyline points="10 17 15 12 10 7"></polyline>
+            <line x1="15" y1="12" x2="3" y2="12"></line>
+          </svg>
+          <span>Client Login Portal</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       MAIN CONTENT: FEATURES PAGE (Exactly 5 Distinct Non-Repeating Sections)
+       ========================================================================= -->
+  <main id="main-content">
+
+    <!-- =========================================================================
+         SECTION 1: ASYMMETRICAL HERO MATRIX SHOWCASE
+         ========================================================================= -->
+    <section class="subpage-hero-section" id="features-hero">
+      <div class="site-container">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+          <!-- Left: Hero Text Column -->
+          <div class="lg:col-span-7 space-y-6">
+            <span class="section-badge">
+              <svg class="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+              Next-Gen Omnichannel Infrastructure
+            </span>
+            <h1 class="section-title text-black dark:text-white">
+              Every Register. Every Channel. <span class="text-indigo-600 dark:text-indigo-400">One Unified Loyalty
+                Core</span>
+            </h1>
+            <p class="section-subtitle text-black dark:text-white font-semibold">
+              Execute real-time point accruals, dynamic cashback rules, and wallet pass updates at payment speed.
+            </p>
+
+            <!-- 2 Fast Capability Pills -->
+            <div class="flex flex-wrap items-center gap-3 pt-1">
+              <div
+                class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 text-xs font-bold text-black dark:text-white">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                Universal POS Hardware Agnostic
+              </div>
+              <div
+                class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 text-xs font-bold text-black dark:text-white">
+                <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+                Sub-15ms In-Store Calculation
+              </div>
+            </div>
+
+            <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+              <a href="login.html" class="btn-primary w-full sm:w-auto text-center justify-center">
+                <span>Deploy Platform Trial</span>
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="#pillar-grid" class="btn-secondary w-full sm:w-auto text-center justify-center">
+                <span>Explore Core Modules</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: High-Res Interactive Hardware Showcase Image -->
+          <div class="lg:col-span-5">
+            <div class="relative rounded-2xl overflow-hidden border border-slate-300 dark:border-neutral-800 shadow-xl">
+              <img src="assets/images/features/p21.jpg"
+                alt="Contactless retail card payment terminal with PerkPulse real-time loyalty connection"
+                class="w-full h-[400px] object-cover" width="800" height="600" loading="eager">
+
+              <!-- Floating Live Telemetry Badge -->
+              <div
+                class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 bg-white/95 dark:bg-black/90 backdrop-blur-md p-3 sm:p-3.5 rounded-xl border border-slate-300 dark:border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1.5 sm:gap-3 text-xs font-bold text-black dark:text-white">
+                <span class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                  NFC Contactless ID Enabled
+                </span>
+                <span class="text-indigo-600 dark:text-indigo-400 font-black">&lt;12ms Register Sync</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 2: 6-PILLAR CORE CAPABILITY MATRIX (2x3 Equal Height Grid)
+         ========================================================================= -->
+    <section class="py-16 md:py-24 border-b border-slate-200 dark:border-neutral-900" id="pillar-grid">
+      <div class="site-container">
+
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="section-badge">
+            <svg class="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            Complete Capability Matrix
+          </span>
+          <h2 class="section-title text-black dark:text-white">
+            Six Core Pillars Powering Modern Retail Retention
+          </h2>
+          <p class="section-subtitle text-black dark:text-white font-semibold mx-auto">
+            Modular toolset to reward shoppers, protect retail margins, and execute instant redemptions.
+          </p>
+        </div>
+
+        <!-- 6 Symmetrical Even Height Cards (3 cols x 2 rows) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+
+          <!-- Pillar 1 -->
+          <div class="feature-pillar-card">
+            <img src="assets/images/features/p22.jpg" alt="Point of sale cashier checkout register overlay"
+              class="feature-pillar-img" width="600" height="350" loading="lazy">
+            <div class="feature-pillar-overlay"></div>
+            <div class="feature-pillar-body">
+              <span class="feature-pillar-pill">Cashier Overlay</span>
+              <h3 class="feature-pillar-title">Instant Barcode Accrual</h3>
+            </div>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="feature-pillar-card">
+            <img src="assets/images/features/p23.jpg" alt="Customer holding iPhone with mobile pass"
+              class="feature-pillar-img" width="600" height="350" loading="lazy">
+            <div class="feature-pillar-overlay"></div>
+            <div class="feature-pillar-body">
+              <span class="feature-pillar-pill">Native Passports</span>
+              <h3 class="feature-pillar-title">Apple & Google Wallet Passes</h3>
+            </div>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="feature-pillar-card">
+            <img src="assets/images/features/p24.jpg" alt="Customer shopping luxury retail fashion tiers"
+              class="feature-pillar-img" width="600" height="350" loading="lazy">
+            <div class="feature-pillar-overlay"></div>
+            <div class="feature-pillar-body">
+              <span class="feature-pillar-pill">Tier Mechanics</span>
+              <h3 class="feature-pillar-title">Automated Milestone Ladders</h3>
+            </div>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="feature-pillar-card">
+            <img src="assets/images/features/p25.jpg" alt="Supermarket checkout grocery basket cashback"
+              class="feature-pillar-img" width="600" height="350" loading="lazy">
+            <div class="feature-pillar-overlay"></div>
+            <div class="feature-pillar-body">
+              <span class="feature-pillar-pill">Checkout Redemptions</span>
+              <h3 class="feature-pillar-title">Instant Basket Cashback Offsets</h3>
+            </div>
+          </div>
+
+          <!-- Pillar 5 -->
+          <div class="feature-pillar-card">
+            <img src="assets/images/features/p26.jpg" alt="Retail boutique storefront proximity beacon"
+              class="feature-pillar-img" width="600" height="350" loading="lazy">
+            <div class="feature-pillar-overlay"></div>
+            <div class="feature-pillar-body">
+              <span class="feature-pillar-pill">Location Intelligence</span>
+              <h3 class="feature-pillar-title">Proximity Geofence Alerts</h3>
+            </div>
+          </div>
+
+          <!-- Pillar 6 -->
+          <div class="feature-pillar-card">
+            <img src="assets/images/features/p27.jpg" alt="Cybersecurity shield protecting retail transactions"
+              class="feature-pillar-img" width="600" height="350" loading="lazy">
+            <div class="feature-pillar-overlay"></div>
+            <div class="feature-pillar-body">
+              <span class="feature-pillar-pill">Fraud Prevention</span>
+              <h3 class="feature-pillar-title">Receipt Tamper Defense</h3>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 3: CERTIFIED POS & COMMERCE HARDWARE ECOSYSTEM (4 Symmetrical Cards)
+         ========================================================================= -->
+    <section class="py-16 md:py-24 border-b border-slate-200 dark:border-neutral-900" id="ecosystem">
+      <div class="site-container">
+
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="section-badge">
+            <svg class="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path
+                d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55A1 1 0 0 1 20.38 20H3.62a1 1 0 0 1-.9-1.45L4 16">
+              </path>
+            </svg>
+            Plug-and-Play Integrations
+          </span>
+          <h2 class="section-title text-black dark:text-white">
+            Certified For Your Existing Hardware & Register Fleet
+          </h2>
+          <p class="section-subtitle text-black dark:text-white font-semibold mx-auto">
+            Zero hardware replacements. PerkPulse connects via low-level IP socket drivers and secure webhooks.
+          </p>
+        </div>
+
+        <!-- 4 Symmetrical Even Height Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+
+          <!-- Partner 1 -->
+          <div class="pos-eco-card">
+            <img src="assets/images/features/p28.jpg" alt="NCR Aloha enterprise cash register" class="pos-eco-img"
+              width="600" height="350" loading="lazy">
+            <div class="pos-eco-body">
+              <div>
+                <span
+                  class="inline-block px-2.5 py-0.5 rounded text-xs font-extrabold bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 mb-2">
+                  Legacy Enterprise
+                </span>
+                <h3 class="text-base font-bold text-black dark:text-white mb-1">NCR Aloha & Micros</h3>
+                <p class="text-xs text-black dark:text-white font-semibold">
+                  Direct IP socket drivers certified for high-volume enterprise stores.
+                </p>
+              </div>
+              <div
+                class="pt-3 mt-4 border-t border-slate-200 dark:border-neutral-800 text-xs font-bold text-emerald-500 flex items-center justify-between">
+                <span>Driver Status</span>
+                <span>Active 14ms Sync</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Partner 2 -->
+          <div class="pos-eco-card">
+            <img src="assets/images/features/p29.jpg" alt="Modern iPad Toast POS register counter" class="pos-eco-img"
+              width="600" height="350" loading="lazy">
+            <div class="pos-eco-body">
+              <div>
+                <span
+                  class="inline-block px-2.5 py-0.5 rounded text-xs font-extrabold bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 mb-2">
+                  Cloud Registers
+                </span>
+                <h3 class="text-base font-bold text-black dark:text-white mb-1">Toast & Square POS</h3>
+                <p class="text-xs text-black dark:text-white font-semibold">
+                  Pre-built app connectors syncing real-time member balances at checkout.
+                </p>
+              </div>
+              <div
+                class="pt-3 mt-4 border-t border-slate-200 dark:border-neutral-800 text-xs font-bold text-emerald-500 flex items-center justify-between">
+                <span>Driver Status</span>
+                <span>Active 12ms Sync</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Partner 3 -->
+          <div class="pos-eco-card">
+            <img src="assets/images/features/p30.jpg" alt="Shopify digital commerce e-commerce laptop"
+              class="pos-eco-img" width="600" height="350" loading="lazy">
+            <div class="pos-eco-body">
+              <div>
+                <span
+                  class="inline-block px-2.5 py-0.5 rounded text-xs font-extrabold bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 mb-2">
+                  Digital Commerce
+                </span>
+                <h3 class="text-base font-bold text-black dark:text-white mb-1">Shopify & Salesforce</h3>
+                <p class="text-xs text-black dark:text-white font-semibold">
+                  GraphQL hooks powering unified online cart redemption with in-store sync.
+                </p>
+              </div>
+              <div
+                class="pt-3 mt-4 border-t border-slate-200 dark:border-neutral-800 text-xs font-bold text-emerald-500 flex items-center justify-between">
+                <span>Driver Status</span>
+                <span>Active 18ms Sync</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Partner 4 -->
+          <div class="pos-eco-card">
+            <img src="assets/images/features/p31.jpg" alt="Enterprise cloud database server room" class="pos-eco-img"
+              width="600" height="350" loading="lazy">
+            <div class="pos-eco-body">
+              <div>
+                <span
+                  class="inline-block px-2.5 py-0.5 rounded text-xs font-extrabold bg-amber-50 dark:bg-amber-950 text-amber-600 dark:text-amber-300 border border-amber-200 dark:border-amber-800 mb-2">
+                  Enterprise ERP
+                </span>
+                <h3 class="text-base font-bold text-black dark:text-white mb-1">SAP & Oracle Netsuite</h3>
+                <p class="text-xs text-black dark:text-white font-semibold">
+                  High-throughput ledger sync pushing batch financial reconciliation directly to your GL.
+                </p>
+              </div>
+              <div
+                class="pt-3 mt-4 border-t border-slate-200 dark:border-neutral-800 text-xs font-bold text-emerald-500 flex items-center justify-between">
+                <span>Driver Status</span>
+                <span>Active 24ms Sync</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 4: INTERACTIVE REWARD RULE SIMULATOR & LOGIC BUILDER
+         ========================================================================= -->
+    <section class="py-16 md:py-24 border-b border-slate-200 dark:border-neutral-900" id="rule-simulator">
+      <div class="site-container">
+
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="section-badge">
+            <svg class="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path
+                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+              </path>
+            </svg>
+            Zero-Code Logic Studio
+          </span>
+          <h2 class="section-title text-black dark:text-white">
+            Configure Sophisticated Rules in Seconds
+          </h2>
+          <p class="section-subtitle text-black dark:text-white font-semibold mx-auto">
+            Build targeted promotions, off-peak multipliers, and tier acceleration logic with zero code.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+          <!-- Left Column: Visual Rule Simulator Card -->
+          <div class="lg:col-span-6 rule-simulator-card space-y-3.5">
+            <div class="flex items-center justify-between gap-2 sm:gap-3 pb-3 border-b border-slate-800">
+              <span class="text-xs font-mono font-bold text-indigo-400 flex-1 min-w-0 break-words">Rule #RT-849: Weekend Accelerated Tier Boost</span>
+              <span
+                class="text-xs font-bold text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800 shrink-0 whitespace-nowrap">Active</span>
+            </div>
+
+            <!-- Condition 1 -->
+            <div class="rule-logic-row flex items-center justify-between gap-2.5 sm:gap-4 p-2.5 sm:p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
+              <div class="text-xs font-mono flex-1 min-w-0">
+                <span class="text-indigo-300 font-bold">IF</span> Cart Total &gt; <span
+                  class="text-amber-400 font-bold">$50.00</span>
+              </div>
+              <span class="text-[11px] font-bold text-slate-300 shrink-0 text-right whitespace-nowrap">Min Basket Met</span>
+            </div>
+
+            <!-- Condition 2 -->
+            <div class="rule-logic-row flex items-center justify-between gap-2.5 sm:gap-4 p-2.5 sm:p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
+              <div class="text-xs font-mono flex-1 min-w-0">
+                <span class="text-indigo-300 font-bold">AND</span> Store Category = <span
+                  class="text-emerald-400 font-bold">"Organic Coffee"</span>
+              </div>
+              <span class="text-[11px] font-bold text-slate-300 shrink-0 text-right whitespace-nowrap">SKU Matched</span>
+            </div>
+
+            <!-- Action 1 -->
+            <div class="rule-logic-row flex items-center justify-between gap-2.5 sm:gap-4 p-2.5 sm:p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
+              <div class="text-xs font-mono flex-1 min-w-0">
+                <span class="text-emerald-400 font-bold">THEN</span> Apply Multiplier = <span
+                  class="text-indigo-300 font-bold">3.0x Points</span>
+              </div>
+              <span class="text-[11px] font-bold text-emerald-400 shrink-0 text-right whitespace-nowrap">+150 Bonus</span>
+            </div>
+
+            <!-- Action 2 -->
+            <div class="rule-logic-row flex items-center justify-between gap-2.5 sm:gap-4 p-2.5 sm:p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
+              <div class="text-xs font-mono flex-1 min-w-0">
+                <span class="text-emerald-400 font-bold">AND</span> Issue Pass Voucher = <span
+                  class="text-amber-400 font-bold">Free Bakery Pass</span>
+              </div>
+              <span class="text-[11px] font-bold text-emerald-400 shrink-0 text-right whitespace-nowrap">Pushed to Wallet</span>
+            </div>
+
+            <div class="pt-3 text-xs font-mono text-slate-400 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-4 border-t border-slate-800/60">
+              <span>Rule Evaluated in 8ms</span>
+              <span class="text-emerald-400 font-bold sm:text-right">Live Across 4,200 Registers</span>
+            </div>
+          </div>
+
+          <!-- Right Column: Visual In-Store Redemption Photo -->
+          <div class="lg:col-span-6">
+            <div class="relative rounded-2xl overflow-hidden border border-slate-300 dark:border-neutral-800 shadow-xl">
+              <img src="assets/images/features/p32.jpg"
+                alt="Happy customer in retail store redeeming automated point multiplier"
+                class="w-full h-[380px] object-cover" width="800" height="500" loading="lazy">
+
+              <!-- Floating Success Notification -->
+              <div
+                class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 bg-black/90 backdrop-blur-md p-3 sm:p-3.5 rounded-xl border border-neutral-700 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1.5 sm:gap-3 text-xs font-bold text-white">
+                <span class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                  Rule Triggered at POS #04
+                </span>
+                <span class="text-amber-400 font-black">+150 VIP Points Accrued</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 5: ENTERPRISE COMPARISON TABLE & DIRECT ONBOARDING BANNER
+         ========================================================================= -->
+    <section class="py-16 md:py-24" id="performance-comparison">
+      <div class="site-container">
+
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="section-badge">
+            <svg class="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"></line>
+              <line x1="12" y1="20" x2="12" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="14"></line>
+            </svg>
+            Architectural Benchmarks
+          </span>
+          <h2 class="section-title text-black dark:text-white">
+            Why Enterprise Brands Choose PerkPulse
+          </h2>
+          <p class="section-subtitle text-black dark:text-white font-semibold mx-auto">
+            Compare latency, hardware flexibility, and total cost of ownership against legacy vendors.
+          </p>
+        </div>
+
+        <!-- High-Contrast Comparison Matrix Card -->
+        <div class="compare-table-wrapper mb-12">
+          <table class="compare-table">
+            <thead>
+              <tr
+                class="bg-slate-100 dark:bg-neutral-900 text-xs font-extrabold uppercase tracking-wider text-black dark:text-white">
+                <th class="w-2/5">Evaluation Metric</th>
+                <th class="w-1/5 text-indigo-600 dark:text-indigo-400 bg-indigo-50/50 dark:bg-indigo-950/40">PerkPulse
+                  OS</th>
+                <th class="w-1/5">Legacy Vendors</th>
+                <th class="w-1/5">Custom In-House Build</th>
+              </tr>
+            </thead>
+            <tbody class="text-xs sm:text-sm font-semibold text-black dark:text-white">
+              <tr>
+                <td class="font-bold">Register Calculation Speed</td>
+                <td class="text-emerald-500 font-extrabold bg-indigo-50/30 dark:bg-indigo-950/20">&lt;15ms Median</td>
+                <td class="text-slate-400">450ms - 2,200ms</td>
+                <td class="text-slate-400">Variable / Unpredictable</td>
+              </tr>
+              <tr>
+                <td class="font-bold">Hardware Compatibility</td>
+                <td class="text-emerald-500 font-extrabold bg-indigo-50/30 dark:bg-indigo-950/20">Universal Socket
+                  Drivers</td>
+                <td class="text-slate-400">Proprietary Terminals Only</td>
+                <td class="text-slate-400">High Dev Overhead</td>
+              </tr>
+              <tr>
+                <td class="font-bold">Apple & Google Wallet Passes</td>
+                <td class="text-emerald-500 font-extrabold bg-indigo-50/30 dark:bg-indigo-950/20">Native Zero-App NFC
+                </td>
+                <td class="text-slate-400">Custom App Required</td>
+                <td class="text-slate-400">Complex PassKit Certs</td>
+              </tr>
+              <tr>
+                <td class="font-bold">Guaranteed Core SLA</td>
+                <td class="text-emerald-500 font-extrabold bg-indigo-50/30 dark:bg-indigo-950/20">99.999% Financial
+                  Backing</td>
+                <td class="text-slate-400">99.5% Standard</td>
+                <td class="text-slate-400">Self-Managed Ops</td>
+              </tr>
+              <tr>
+                <td class="font-bold">Production Onboarding Time</td>
+                <td class="text-emerald-500 font-extrabold bg-indigo-50/30 dark:bg-indigo-950/20">Under 14 Days</td>
+                <td class="text-slate-400">6 - 9 Months</td>
+                <td class="text-slate-400">12+ Months</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Integrated Bottom Onboarding Action Banner -->
+        <div
+          class="p-8 rounded-2xl bg-gradient-to-r from-indigo-900/40 via-indigo-950/60 to-black border border-indigo-500/30 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">
+              Ready To See The Features Operating Live?
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-200 font-semibold max-w-xl">
+              Connect your registers and configure customer progression tiers with our solutions engineers.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-3 shrink-0">
+            <a href="login.html" class="btn-primary">
+              <span>Request Client Demo</span>
+            </a>
+            <a href="pricing.html" class="btn-secondary">
+              <span>View Pricing Plans</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Shared Global Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+
+        <!-- QUADRANT 1 (Top-Left): Brand Atelier Column -->
+        <div class="footer-brand-col">
+          <a href="index.html" class="brand-link" aria-label="PerkPulse Home">
+            <div class="brand-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                </polygon>
+              </svg>
+            </div>
+            <div class="brand-name text-white">
+              Perk<span class="text-indigo-400">Pulse</span>
+            </div>
+          </a>
+          <p class="footer-tagline italic">
+            &ldquo;Autonomous retail loyalty infrastructure shaped for global high-concurrency commerce.&rdquo;
+          </p>
+          <p class="footer-desc">
+            Independent headless loyalty engine synchronizing member tiers, instant cashback calculation, and dynamic rewards across 5,000+ retail points of sale.
+          </p>
+          <div class="footer-social-box flex items-center gap-2.5 pt-1">
+            <a href="#" class="footer-social-square" aria-label="Twitter">
+              <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                </path>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-square" aria-label="LinkedIn">
+              <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-square" aria-label="GitHub">
+              <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                </path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- QUADRANT 2 (Top-Right): Navigation Column -->
+        <div class="footer-nav-col">
+          <h2 class="footer-col-title">
+            <span class="text-indigo-400 mr-2 font-bold">&#8226;</span> NAVIGATION
+          </h2>
+          <ul class="footer-links-list">
+            <li><a href="index.html" class="footer-link">Home 1 (Retail Tech)</a></li>
+            <li><a href="home-2.html" class="footer-link">Home 2 (Enterprise OS)</a></li>
+            <li><a href="features.html" class="footer-link">Platform Features</a></li>
+            <li><a href="dashboard.html" class="footer-link">Client Dashboard</a></li>
+            <li><a href="pricing.html" class="footer-link">Pricing Plans</a></li>
+            <li><a href="about.html" class="footer-link">About PerkPulse</a></li>
+            <li><a href="contact.html" class="footer-link">Contact &amp; Enquiry</a></li>
+          </ul>
+        </div>
+
+        <!-- QUADRANT 3 (Bottom-Left): Platform Architecture Column -->
+        <div class="footer-platform-col">
+          <h2 class="footer-col-title">
+            <span class="text-indigo-400 mr-2 font-bold">&#8226;</span> PLATFORM ARCHITECTURE
+          </h2>
+          <div class="space-y-3.5 mb-4">
+            <div>
+              <div class="text-xs font-bold text-white uppercase tracking-wider">Omnichannel POS Sync</div>
+              <div class="text-xs text-slate-400 leading-relaxed">Sub-50ms latency across 5,000+ retail registers</div>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white uppercase tracking-wider">Dynamic Tier &amp; Ladder Engine</div>
+              <div class="text-xs text-slate-400 leading-relaxed">Real-time cashback calculation &amp; zero desync</div>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white uppercase tracking-wider">Enterprise Security &amp; Ledger</div>
+              <div class="text-xs text-slate-400 leading-relaxed">SOC2 Type II certified &amp; AES-256 encrypted</div>
+            </div>
+          </div>
+          <div
+            class="footer-status-pill inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-indigo-950/80 border border-indigo-500/30 text-[11px] font-mono font-bold text-indigo-200">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            SYSTEM SLA: 99.999% ACTIVE
+          </div>
+        </div>
+
+        <!-- QUADRANT 4 (Bottom-Right): Studio & Headquarters Column -->
+        <div class="footer-enterprise-col">
+          <h2 class="footer-col-title">
+            <span class="text-indigo-400 mr-2 font-bold">&#8226;</span> GLOBAL HEADQUARTERS
+          </h2>
+          <div class="space-y-3.5 mb-4">
+            <div>
+              <div class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 text-indigo-400 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                LOCATION
+              </div>
+              <div class="text-xs text-slate-400 leading-relaxed pl-5">
+                PerkPulse Cloud Infrastructure<br>
+                100 Montgomery St, Suite 2400<br>
+                San Francisco, CA 94104
+              </div>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 text-indigo-400 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                OPERATIONS &amp; SRE SUPPORT
+              </div>
+              <div class="text-xs text-slate-400 pl-5 leading-relaxed">
+                24/7/365 Autonomous Cloud Monitoring<br>
+                Dedicated Enterprise Support Desk
+              </div>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 text-indigo-400 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                  </path>
+                </svg>
+                PHONE &amp; EMAIL
+              </div>
+              <div class="text-xs text-slate-400 pl-5 leading-relaxed">
+                +1 (800) 550-PERK<br>
+                enterprise@perkpulse.com
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom Bar (Legal Links & Back to Top) -->
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 PerkPulse SaaS Technologies Inc. All rights reserved.
+        </div>
+        <div class="flex items-center gap-5 sm:gap-6 flex-wrap">
+          <a href="contact.html" class="footer-link">Privacy Policy</a>
+          <a href="contact.html" class="footer-link">Terms of Use</a>
+          <a href="contact.html" class="footer-link">Security &amp; SLA</a>
+          <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+            class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-all hover:scale-105 ml-1"
+            aria-label="Back to top">
+            &uarr;
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll To Top Button -->
+  <button type="button" id="scroll-to-top" class="scroll-top-btn" aria-label="Scroll back to top" title="Scroll to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+  </button>
+
+  <!-- Core JavaScript -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

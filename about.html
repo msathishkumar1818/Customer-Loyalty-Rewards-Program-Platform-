@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About PerkPulse - Enterprise Loyalty Infrastructure & Architecture</title>
+  <meta name="description"
+    content="Discover PerkPulse's mission, leadership, global engineering hubs, and high-concurrency retail loyalty infrastructure.">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="About PerkPulse - Enterprise Loyalty Infrastructure">
+  <meta property="og:description"
+    content="High-concurrency retail loyalty infrastructure and multi-location rewards operating system.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234f46e5'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
+
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS CDN (Configured with Custom Colors) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            },
+            accent: {
+              500: '#10b981',
+              600: '#059669',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+
+<body class="bg-body text-main transition-colors duration-200">
+
+  <!-- Skip to Main Content Accessibility Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Global Reading Progress Bar -->
+  <div id="readingProgressBar" class="reading-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+    aria-valuemax="100" aria-label="Page reading progress">
+  </div>
+
+  <!-- =========================================================================
+       GLOBAL UNIFIED FIXED HEADER
+       ========================================================================= -->
+  <header class="site-header" id="main-header">
+    <div class="header-container">
+
+      <!-- Logo + Brand -->
+      <a href="index.html" class="brand-link" aria-label="PerkPulse Homepage">
+        <div class="brand-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon
+              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+            </polygon>
+          </svg>
+        </div>
+        <div class="brand-name">
+          Perk<span>Pulse</span>
+
+        </div>
+      </a>
+
+      <!-- Desktop Navigation (6 Primary Items) -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <!-- 1. Home (Dropdown) -->
+        <div class="nav-item">
+          <button type="button" class="nav-link dropdown-btn" id="homeDropdownBtn" aria-expanded="false"
+            aria-haspopup="true">
+            <span>Home</span>
+            <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="dropdown-menu" id="homeDropdownMenu" role="menu" aria-labelledby="homeDropdownBtn">
+            <a href="index.html" class="dropdown-link" role="menuitem">
+              <span>Home 1</span>
+              <span class="dropdown-badge">Retail Tech</span>
+            </a>
+            <a href="home-2.html" class="dropdown-link" role="menuitem">
+              <span>Home 2</span>
+              <span class="dropdown-badge">Enterprise OS</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. About (Active) -->
+        <div class="nav-item">
+          <a href="about.html" class="nav-link active">About</a>
+        </div>
+
+        <!-- 3. Features -->
+        <div class="nav-item">
+          <a href="features.html" class="nav-link">Features</a>
+        </div>
+
+        <!-- 4. Pricing Plans -->
+        <div class="nav-item">
+          <a href="pricing.html" class="nav-link">Pricing Plans</a>
+        </div>
+
+        <!-- 5. Contact -->
+        <div class="nav-item">
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+
+        <!-- 6. Dashboard -->
+        <div class="nav-item">
+          <a href="dashboard.html" class="nav-link">Dashboard</a>
+        </div>
+      </nav>
+
+      <!-- Desktop Actions: RTL/LTR, Dark Mode, Login, CTA Button -->
+      <div class="header-actions">
+        <!-- RTL/LTR Toggle -->
+        <button type="button" class="action-icon-btn js-rtl-toggle desktop-utility-actions" title="Toggle RTL/LTR"
+          aria-label="Toggle Text Direction">
+          <span class="rtl-label-text font-bold text-xs tracking-wider">RTL</span>
+        </button>
+
+        <!-- Dark Mode Toggle -->
+        <button type="button" class="action-icon-btn js-theme-toggle desktop-utility-actions"
+          title="Toggle Dark/Light Mode" aria-label="Toggle Dark Mode">
+          <svg class="theme-icon-sun hidden dark:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon-moon block dark:hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Login Link -->
+        <a href="login.html" class="header-login-link desktop-utility-actions" id="headerLoginBtn">
+          <span>Login</span>
+        </a>
+
+        <!-- Header CTA Button -->
+        <a href="login.html" class="header-cta-btn" id="headerCtaBtn">
+          <span>Get Started</span>
+          <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button type="button" class="mobile-toggle-btn" id="mobileMenuOpenBtn" aria-label="Open Mobile Navigation Menu"
+          aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Backdrop & Menu -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop" aria-hidden="true"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation Menu">
+    <div class="mobile-nav-header">
+      <div class="flex items-center gap-2">
+        <div class="brand-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon
+              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+            </polygon>
+          </svg>
+        </div>
+        <div class="mobile-brand-meta">
+          <span class="brand-title">PerkPulse</span>
+          <span class="brand-tagline">Retail Loyalty </span>
+        </div>
+      </div>
+      <button type="button" class="mobile-close-btn" id="mobileMenuCloseBtn" aria-label="Close Mobile Navigation">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Nav Items -->
+    <ul class="mobile-nav-body">
+      <!-- 1. Home Accordion (Click only) -->
+      <li class="mobile-nav-item">
+        <button type="button" class="mobile-nav-link" id="mobileHomeAccordionBtn" aria-expanded="false">
+          <span>Home</span>
+          <svg class="mobile-nav-arrow w-4 h-4 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+        <div class="mobile-accordion-content" id="mobileHomeAccordion">
+          <a href="index.html" class="mobile-sub-link">
+            <span>Home 1 (Retail Tech)</span>
+          </a>
+          <a href="home-2.html" class="mobile-sub-link">
+            <span>Home 2 (Enterprise OS)</span>
+          </a>
+        </div>
+      </li>
+
+      <!-- 2. About (Active) -->
+      <li class="mobile-nav-item">
+        <a href="about.html" class="mobile-nav-link font-bold text-indigo-600 dark:text-indigo-400">About</a>
+      </li>
+
+      <!-- 3. Features -->
+      <li class="mobile-nav-item">
+        <a href="features.html" class="mobile-nav-link">Features</a>
+      </li>
+
+      <!-- 4. Pricing -->
+      <li class="mobile-nav-item">
+        <a href="pricing.html" class="mobile-nav-link">Pricing Plans</a>
+      </li>
+
+      <!-- 5. Contact -->
+      <li class="mobile-nav-item">
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+      </li>
+
+      <!-- 6. Dashboard -->
+      <li class="mobile-nav-item">
+        <a href="dashboard.html" class="mobile-nav-link">Dashboard</a>
+      </li>
+    </ul>
+
+    <div class="mobile-nav-footer">
+      <div class="mobile-controls-row">
+        <button type="button" class="mobile-control-btn js-rtl-toggle">
+          <span class="font-bold text-xs">RTL Mode</span>
+        </button>
+        <button type="button" class="mobile-control-btn js-theme-toggle">
+          <span class="dark:hidden">Dark Mode</span>
+          <span class="hidden dark:inline">Light Mode</span>
+        </button>
+      </div>
+      <div class="flex flex-col gap-2.5">
+        <a href="login.html" class="btn-primary w-full justify-center text-center py-2.5 text-sm">
+          <span>Get Started</span>
+          <svg class="w-4 h-4 ml-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+        <a href="login.html" class="mobile-login-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+            <polyline points="10 17 15 12 10 7"></polyline>
+            <line x1="15" y1="12" x2="3" y2="12"></line>
+          </svg>
+          <span>Client Login Portal</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       MAIN CONTENT: ABOUT PAGE (Exactly 5 Distinct Non-Repeating Sections)
+       ========================================================================= -->
+  <main id="main-content">
+
+    <!-- =========================================================================
+         SECTION 1: ASYMMETRICAL STORY HERO & DUAL OVERLAPPING COLLAGE
+         ========================================================================= -->
+    <section class="subpage-hero-section" id="about-hero">
+      <div class="site-container">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+          <!-- Left Column: Story Statement & Fast Key Numbers -->
+          <div class="lg:col-span-6 space-y-6">
+            <span class="section-badge">
+              <svg class="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+              Our Mission & Heritage
+            </span>
+            <h1 class="section-title text-black dark:text-white">
+              The Retention Rails For Modern <span class="text-indigo-600 dark:text-indigo-400">Global Commerce</span>
+            </h1>
+            <p class="section-subtitle text-black dark:text-white font-semibold">
+              PerkPulse powers real-time loyalty infrastructure for global retail brands at checkout.
+            </p>
+
+            <!-- 3 Fast Stat Pills (Strictly Even) -->
+            <div class="grid grid-cols-3 gap-3 pt-2 items-stretch">
+              <div
+                class="p-3 sm:p-3.5 rounded-xl bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 text-center flex flex-col justify-center items-center h-full">
+                <div
+                  class="text-lg sm:text-2xl font-black leading-none mb-1 text-indigo-600 dark:text-indigo-400 h-7 flex items-center justify-center">
+                  2021</div>
+                <div
+                  class="min-h-[32px] flex items-center justify-center text-center text-xs font-bold text-black dark:text-white leading-tight">
+                  Founded</div>
+              </div>
+              <div
+                class="p-3 sm:p-3.5 rounded-xl bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 text-center flex flex-col justify-center items-center h-full">
+                <div
+                  class="text-lg sm:text-2xl font-black leading-none mb-1 text-emerald-500 h-7 flex items-center justify-center">
+                  $4.2B+</div>
+                <div
+                  class="min-h-[32px] flex items-center justify-center text-center text-xs font-bold text-black dark:text-white leading-tight">
+                  Volume Synced</div>
+              </div>
+              <div
+                class="p-3 sm:p-3.5 rounded-xl bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 text-center flex flex-col justify-center items-center h-full">
+                <div
+                  class="text-lg sm:text-2xl font-black leading-none mb-1 text-indigo-600 dark:text-indigo-400 h-7 flex items-center justify-center">
+                  99.999%</div>
+                <div
+                  class="min-h-[32px] flex items-center justify-center text-center text-xs font-bold text-black dark:text-white leading-tight">
+                  Core SLA</div>
+              </div>
+            </div>
+
+            <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+              <a href="login.html" class="btn-primary w-full sm:w-auto text-center justify-center">
+                <span>Join Enterprise Network</span>
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="features.html" class="btn-secondary w-full sm:w-auto text-center justify-center">
+                <span>View Platform Architecture</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Asymmetrical Dual Overlapping Image Collage -->
+          <div class="lg:col-span-6">
+            <div class="about-hero-collage">
+              <img src="assets/images/about/p12.jpg" alt="PerkPulse Global Engineering Headquarters Architecture"
+                class="about-hero-primary-img" width="1000" height="600" loading="eager">
+
+              <!-- Secondary Overlapping Card -->
+              <div class="about-hero-secondary-card">
+                <img src="assets/images/about/p13.jpg" alt="PerkPulse Engineering Architecture Team Collaborating"
+                  class="about-hero-secondary-img" width="600" height="350" loading="lazy">
+                <div class="p-3 text-center">
+                  <div class="text-xs font-bold text-black dark:text-white flex items-center justify-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Distributed Engineering Fleet
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 2: MILESTONE EVOLUTION JOURNEY (4 Symmetrical Horizontal Cards)
+         ========================================================================= -->
+    <section class="py-16 md:py-24 border-b border-slate-200 dark:border-neutral-900" id="milestones">
+      <div class="site-container">
+
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="section-badge">
+            <svg class="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            Company Trajectory
+          </span>
+          <h2 class="section-title text-black dark:text-white">
+            Engineering Milestones That Shaped Retail Loyalty
+          </h2>
+          <p class="section-subtitle text-black dark:text-white font-semibold mx-auto">
+            From low-level register drivers to a multi-cloud OS processing millions of daily transactions.
+          </p>
+        </div>
+
+        <!-- 4 Symmetrical Even Height Milestone Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+
+          <!-- Milestone 1 -->
+          <div class="milestone-card">
+            <img src="assets/images/about/p14.jpg" alt="Whiteboard prototyping loyalty software" class="milestone-img"
+              width="600" height="350" loading="lazy">
+            <div class="milestone-body">
+              <div>
+                <span
+                  class="inline-block px-2.5 py-0.5 rounded text-xs font-extrabold bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 mb-2">
+                  2021 Genesis
+                </span>
+                <h3 class="text-base font-bold text-black dark:text-white mb-2">Headless Prototype</h3>
+                <p class="text-xs text-black dark:text-white font-semibold">
+                  Built low-latency APIs connecting mobile wallet passes to SF retail stores.
+                </p>
+              </div>
+              <div
+                class="pt-3 mt-4 border-t border-slate-200 dark:border-neutral-800 text-[11px] font-bold text-black dark:text-white">
+                12 Pilot Stores Launched
+              </div>
+            </div>
+          </div>
+
+          <!-- Milestone 2 -->
+          <div class="milestone-card">
+            <img src="assets/images/about/p15.jpg" alt="Point of sale hardware terminal checkout" class="milestone-img"
+              width="600" height="350" loading="lazy">
+            <div class="milestone-body">
+              <div>
+                <span
+                  class="inline-block px-2.5 py-0.5 rounded text-xs font-extrabold bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 mb-2">
+                  2023 POS Protocol
+                </span>
+                <h3 class="text-base font-bold text-black dark:text-white mb-2">Hardware Driver Core</h3>
+                <p class="text-xs text-black dark:text-white font-semibold">
+                  Engineered native connectors for Verifone, NCR, and Toast registers.
+                </p>
+              </div>
+              <div
+                class="pt-3 mt-4 border-t border-slate-200 dark:border-neutral-800 text-[11px] font-bold text-black dark:text-white">
+                &lt;15ms Calculation Speed
+              </div>
+            </div>
+          </div>
+
+          <!-- Milestone 3 -->
+          <div class="milestone-card">
+            <img src="assets/images/about/p16.jpg" alt="Cloud data center server rack" class="milestone-img" width="600"
+              height="350" loading="lazy">
+            <div class="milestone-body">
+              <div>
+                <span
+                  class="inline-block px-2.5 py-0.5 rounded text-xs font-extrabold bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 mb-2">
+                  2025 Global Fleet
+                </span>
+                <h3 class="text-base font-bold text-black dark:text-white mb-2">Multi-Region Cloud</h3>
+                <p class="text-xs text-black dark:text-white font-semibold">
+                  Deployed multi-region cloud clusters across North America, EMEA, and APAC.
+                </p>
+              </div>
+              <div
+                class="pt-3 mt-4 border-t border-slate-200 dark:border-neutral-800 text-[11px] font-bold text-black dark:text-white">
+                5,000+ Synchronized Nodes
+              </div>
+            </div>
+          </div>
+
+          <!-- Milestone 4 -->
+          <div class="milestone-card">
+            <img src="assets/images/about/p17.jpg" alt="Futuristic AI machine learning digital stream"
+              class="milestone-img" width="600" height="350" loading="lazy">
+            <div class="milestone-body">
+              <div>
+                <span
+                  class="inline-block px-2.5 py-0.5 rounded text-xs font-extrabold bg-amber-50 dark:bg-amber-950 text-amber-600 dark:text-amber-300 border border-amber-200 dark:border-amber-800 mb-2">
+                  2026 AI Engine
+                </span>
+                <h3 class="text-base font-bold text-black dark:text-white mb-2">Predictive Retention</h3>
+                <p class="text-xs text-black dark:text-white font-semibold">
+                  Integrated AI scoring models to scale point multipliers dynamically.
+                </p>
+              </div>
+              <div
+                class="pt-3 mt-4 border-t border-slate-200 dark:border-neutral-800 text-[11px] font-bold text-black dark:text-white">
+                3.2x Campaign ROI
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 3: CORE OPERATING PRINCIPLES & ENGINEERING DNA (3 Even Cards)
+         ========================================================================= -->
+    <section class="py-16 md:py-24 border-b border-slate-200 dark:border-neutral-900" id="principles">
+      <div class="site-container">
+
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="section-badge">
+            <svg class="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            Engineering Standards
+          </span>
+          <h2 class="section-title text-black dark:text-white">
+            Our Architectural Core Principles
+          </h2>
+          <p class="section-subtitle text-black dark:text-white font-semibold mx-auto">
+            Governed by three non-negotiable architectural commitments for enterprise reliability.
+          </p>
+        </div>
+
+        <!-- 3 Symmetrical Even Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+
+          <!-- Principle 1 -->
+          <div class="principle-card">
+            <img src="assets/images/about/p18.jpg" alt="Global satellite earth cloud network" class="principle-img"
+              width="600" height="350" loading="lazy">
+            <div class="principle-body">
+              <div>
+                <span class="text-xs font-black uppercase tracking-wider text-indigo-600 dark:text-indigo-400">Zero
+                  Register Interruption</span>
+                <h3 class="text-xl font-bold text-black dark:text-white mt-1 mb-3">Reliability Above All</h3>
+                <p class="text-xs sm:text-sm text-black dark:text-white font-semibold">
+                  Offline fallback buffer ensures points accrue even during network drops.
+                </p>
+              </div>
+              <div
+                class="pt-4 border-t border-slate-200 dark:border-neutral-800 flex items-center justify-between text-xs font-bold text-black dark:text-white">
+                <span>Contractual SLA</span>
+                <span class="text-emerald-500 font-black">99.999% Guaranteed</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Principle 2 -->
+          <div class="principle-card">
+            <img src="assets/images/about/p19.jpg" alt="High speed light trails representing low latency"
+              class="principle-img" width="600" height="350" loading="lazy">
+            <div class="principle-body">
+              <div>
+                <span
+                  class="text-xs font-black uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Low-Latency
+                  Execution</span>
+                <h3 class="text-xl font-bold text-black dark:text-white mt-1 mb-3">Sub-50ms Global Edge</h3>
+                <p class="text-xs sm:text-sm text-black dark:text-white font-semibold">
+                  Point calculations and cart redemptions complete in under 20ms at the edge.
+                </p>
+              </div>
+              <div
+                class="pt-4 border-t border-slate-200 dark:border-neutral-800 flex items-center justify-between text-xs font-bold text-black dark:text-white">
+                <span>Avg Processing Speed</span>
+                <span class="text-indigo-600 dark:text-indigo-400 font-black">18ms Median</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Principle 3 -->
+          <div class="principle-card">
+            <img src="assets/images/about/p20.jpg" alt="Digital cybersecurity shield for enterprise privacy"
+              class="principle-img" width="600" height="350" loading="lazy">
+            <div class="principle-body">
+              <div>
+                <span class="text-xs font-black uppercase tracking-wider text-amber-600 dark:text-amber-400">Data
+                  Sovereignty</span>
+                <h3 class="text-xl font-bold text-black dark:text-white mt-1 mb-3">Bank-Grade Ledger </h3>
+                <p class="text-xs sm:text-sm text-black dark:text-white font-semibold">
+                  Immutable cryptographic ledger with AES-256 encryption and isolated tenant vaults.
+                </p>
+              </div>
+              <div
+                class="pt-4 border-t border-slate-200 dark:border-neutral-800 flex items-center justify-between text-xs font-bold text-black dark:text-white">
+                <span>Compliance</span>
+                <span class="text-emerald-500 font-black">SOC2 Type II + GDPR</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 4: EXECUTIVE LEADERSHIP & RETAIL ARCHITECTS (4 Symmetrical Cards)
+         ========================================================================= -->
+    <section class="py-16 md:py-24 border-b border-slate-200 dark:border-neutral-900" id="leadership">
+      <div class="site-container">
+
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="section-badge">
+            <svg class="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            Retail Architects
+          </span>
+          <h2 class="section-title text-black dark:text-white">
+            Built By Commerce Infrastructure Veterans
+          </h2>
+          <p class="section-subtitle text-black dark:text-white font-semibold mx-auto">
+            Decade of proven experience scaling payment and loyalty protocols globally.
+          </p>
+        </div>
+
+        <!-- 4 Symmetrical Even Height Leadership Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+
+          <!-- Leader 1 -->
+          <div class="team-card">
+            <img src="assets/images/about/about-team-ceo.jpg" alt="Sarah Lin - Chief Executive Officer"
+              class="team-avatar-img" width="600" height="450" loading="lazy">
+            <div class="team-body">
+              <div>
+                <span class="text-xs font-bold text-indigo-600 dark:text-indigo-400">Co-Founder & CEO</span>
+                <h3 class="text-lg font-bold text-black dark:text-white mt-0.5 mb-1">Sarah Lin</h3>
+                <p class="text-xs text-black dark:text-white font-semibold">
+                  Former Commerce Lead at Stripe. Scaled POS software to 14,000+ retail merchants.
+                </p>
+              </div>
+              <div
+                class="pt-3 mt-4 border-t border-slate-200 dark:border-neutral-800 flex items-center justify-between text-xs font-bold text-black dark:text-white">
+                <span>San Francisco, CA</span>
+                <span class="text-indigo-600 dark:text-indigo-400">LinkedIn →</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Leader 2 -->
+          <div class="team-card">
+            <img src="assets/images/about/about-team-cto.jpg" alt="David Chen - Chief Technology Officer"
+              class="team-avatar-img" width="600" height="450" loading="lazy">
+            <div class="team-body">
+              <div>
+                <span class="text-xs font-bold text-indigo-600 dark:text-indigo-400">Co-Founder & CTO</span>
+                <h3 class="text-lg font-bold text-black dark:text-white mt-0.5 mb-1">David Chen</h3>
+                <p class="text-xs text-black dark:text-white font-semibold">
+                  Former Architect at Square POS. Designed distributed ledgers for low-latency events.
+                </p>
+              </div>
+              <div
+                class="pt-3 mt-4 border-t border-slate-200 dark:border-neutral-800 flex items-center justify-between text-xs font-bold text-black dark:text-white">
+                <span>San Francisco, CA</span>
+                <span class="text-indigo-600 dark:text-indigo-400">LinkedIn →</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Leader 3 -->
+          <div class="team-card">
+            <img src="assets/images/about/about-team-cpo.jpg" alt="Amara Okonjo - Chief Product Officer"
+              class="team-avatar-img" width="600" height="450" loading="lazy">
+            <div class="team-body">
+              <div>
+                <span class="text-xs font-bold text-indigo-600 dark:text-indigo-400">Chief Product Officer</span>
+                <h3 class="text-lg font-bold text-black dark:text-white mt-0.5 mb-1">Amara Okonjo</h3>
+                <p class="text-xs text-black dark:text-white font-semibold">
+                  Former Retail Retention Head at Shopify. Pioneer of Apple Wallet NFC pass loyalty.
+                </p>
+              </div>
+              <div
+                class="pt-3 mt-4 border-t border-slate-200 dark:border-neutral-800 flex items-center justify-between text-xs font-bold text-black dark:text-white">
+                <span>London, UK</span>
+                <span class="text-indigo-600 dark:text-indigo-400">LinkedIn →</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Leader 4 -->
+          <div class="team-card">
+            <img src="assets/images/about/about-team-cro.jpg" alt="Julian Moreau - Chief Revenue Officer"
+              class="team-avatar-img" width="600" height="450" loading="lazy">
+            <div class="team-body">
+              <div>
+                <span class="text-xs font-bold text-indigo-600 dark:text-indigo-400">Chief Revenue Officer</span>
+                <h3 class="text-lg font-bold text-black dark:text-white mt-0.5 mb-1">Julian Moreau</h3>
+                <p class="text-xs text-black dark:text-white font-semibold">
+                  Former VP Retail at Adyen. Spearheaded omnichannel payments for global brands.
+                </p>
+              </div>
+              <div
+                class="pt-3 mt-4 border-t border-slate-200 dark:border-neutral-800 flex items-center justify-between text-xs font-bold text-black dark:text-white">
+                <span>Paris, France</span>
+                <span class="text-indigo-600 dark:text-indigo-400">LinkedIn →</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 5: GLOBAL HUBS & DIRECT ONBOARDING CALLOUT (3 Hub Cards + Action Bar)
+         ========================================================================= -->
+    <section class="py-16 md:py-24" id="global-hubs">
+      <div class="site-container">
+
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="section-badge">
+            <svg class="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+              </path>
+            </svg>
+            Global Presence
+          </span>
+          <h2 class="section-title text-black dark:text-white">
+            Engineering Hubs Across Three Continents
+          </h2>
+          <p class="section-subtitle text-black dark:text-white font-semibold mx-auto">
+            Distributed engineering hubs delivering 24/7 SLA coverage and POS certifications.
+          </p>
+        </div>
+
+        <!-- 3 Symmetrical Even Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch mb-12">
+
+          <!-- Hub 1: SF -->
+          <div class="hub-card">
+            <img src="assets/images/about/about-hub-sf.jpg" alt="San Francisco headquarters skyline" class="hub-img"
+              width="600" height="350" loading="lazy">
+            <div class="hub-body">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-xs font-bold text-indigo-600 dark:text-indigo-400">Headquarters</span>
+                  <span class="flex items-center gap-1.5 text-xs font-extrabold text-emerald-500">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    HQ Active
+                  </span>
+                </div>
+                <h3 class="text-lg font-bold text-black dark:text-white mb-1">San Francisco, USA</h3>
+                <p class="text-xs text-black dark:text-white font-semibold mb-3">
+                  Core R&D lab, hardware test suite, and Americas headquarters.
+                </p>
+              </div>
+              <div
+                class="pt-3 border-t border-slate-200 dark:border-neutral-800 text-xs font-bold text-black dark:text-white flex items-center justify-between">
+                <span>Mission Street Suite 400</span>
+                <span class="text-slate-400 font-mono">PST (UTC-8)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hub 2: London -->
+          <div class="hub-card">
+            <img src="assets/images/about/about-hub-london.jpg" alt="London Canary Wharf financial center skyline"
+              class="hub-img" width="600" height="350" loading="lazy">
+            <div class="hub-body">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-xs font-bold text-indigo-600 dark:text-indigo-400">EMEA Operations</span>
+                  <span class="flex items-center gap-1.5 text-xs font-extrabold text-emerald-500">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Online
+                  </span>
+                </div>
+                <h3 class="text-lg font-bold text-black dark:text-white mb-1">London, UK</h3>
+                <p class="text-xs text-black dark:text-white font-semibold mb-3">
+                  European solutions, GDPR compliance auditing, and multi-currency tier support.
+                </p>
+              </div>
+              <div
+                class="pt-3 border-t border-slate-200 dark:border-neutral-800 text-xs font-bold text-black dark:text-white flex items-center justify-between">
+                <span>Canary Wharf Level 22</span>
+                <span class="text-slate-400 font-mono">GMT (UTC+0)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hub 3: Singapore -->
+          <div class="hub-card">
+            <img src="assets/images/about/about-hub-singapore.jpg" alt="Singapore Marina Bay international commerce hub"
+              class="hub-img" width="600" height="350" loading="lazy">
+            <div class="hub-body">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-xs font-bold text-indigo-600 dark:text-indigo-400">APAC Operations</span>
+                  <span class="flex items-center gap-1.5 text-xs font-extrabold text-emerald-500">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Online
+                  </span>
+                </div>
+                <h3 class="text-lg font-bold text-black dark:text-white mb-1">Singapore</h3>
+                <p class="text-xs text-black dark:text-white font-semibold mb-3">
+                  APAC network integrations, QR checkout protocols, and franchise analytics.
+                </p>
+              </div>
+              <div
+                class="pt-3 border-t border-slate-200 dark:border-neutral-800 text-xs font-bold text-black dark:text-white flex items-center justify-between">
+                <span>Marina Boulevard Tower 1</span>
+                <span class="text-slate-400 font-mono">SGT (UTC+8)</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Integrated Onboarding Action Callout -->
+        <div
+          class="p-8 rounded-2xl bg-gradient-to-r from-indigo-900/40 via-indigo-950/60 to-black border border-indigo-500/30 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">
+              Ready To Upgrade Your Retail Loyalty Infrastructure?
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-200 font-semibold max-w-xl">
+              Connect your registers and configure customer progression tiers with our solutions engineers.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto shrink-0">
+            <a href="login.html" class="btn-primary w-full sm:w-auto text-center justify-center">
+              <span>Request Client Demo</span>
+            </a>
+            <a href="pricing.html" class="btn-secondary w-full sm:w-auto text-center justify-center">
+              <span>View Pricing Plans</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Shared Global Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+
+        <!-- QUADRANT 1 (Top-Left): Brand Atelier Column -->
+        <div class="footer-brand-col">
+          <a href="index.html" class="brand-link" aria-label="PerkPulse Home">
+            <div class="brand-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                </polygon>
+              </svg>
+            </div>
+            <div class="brand-name text-white">
+              Perk<span class="text-indigo-400">Pulse</span>
+            </div>
+          </a>
+          <p class="footer-tagline italic">
+            &ldquo;Autonomous retail loyalty infrastructure shaped for global high-concurrency commerce.&rdquo;
+          </p>
+          <p class="footer-desc">
+            Independent headless loyalty engine synchronizing member tiers, instant cashback calculation, and dynamic
+            rewards across 5,000+ retail points of sale.
+          </p>
+          <div class="footer-social-box flex items-center gap-2.5 pt-1">
+            <a href="#" class="footer-social-square" aria-label="Twitter">
+              <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                </path>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-square" aria-label="LinkedIn">
+              <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-square" aria-label="GitHub">
+              <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                </path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- QUADRANT 2 (Top-Right): Navigation Column -->
+        <div class="footer-nav-col">
+          <h2 class="footer-col-title">
+            <span class="text-indigo-400 mr-2 font-bold">&#8226;</span> NAVIGATION
+          </h2>
+          <ul class="footer-links-list">
+            <li><a href="index.html" class="footer-link">Home 1 (Retail Tech)</a></li>
+            <li><a href="home-2.html" class="footer-link">Home 2 (Enterprise OS)</a></li>
+            <li><a href="features.html" class="footer-link">Platform Features</a></li>
+            <li><a href="dashboard.html" class="footer-link">Client Dashboard</a></li>
+            <li><a href="pricing.html" class="footer-link">Pricing Plans</a></li>
+            <li><a href="about.html" class="footer-link">About PerkPulse</a></li>
+            <li><a href="contact.html" class="footer-link">Contact &amp; Enquiry</a></li>
+          </ul>
+        </div>
+
+        <!-- QUADRANT 3 (Bottom-Left): Platform Architecture Column -->
+        <div class="footer-platform-col">
+          <h2 class="footer-col-title">
+            <span class="text-indigo-400 mr-2 font-bold">&#8226;</span> PLATFORM ARCHITECTURE
+          </h2>
+          <div class="space-y-3.5 mb-4">
+            <div>
+              <div class="text-xs font-bold text-white uppercase tracking-wider">Omnichannel POS Sync</div>
+              <div class="text-xs text-slate-400 leading-relaxed">Sub-50ms latency across 5,000+ retail registers</div>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white uppercase tracking-wider">Dynamic Tier &amp; Ladder Engine</div>
+              <div class="text-xs text-slate-400 leading-relaxed">Real-time cashback calculation &amp; zero desync</div>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white uppercase tracking-wider">Enterprise Security &amp; Ledger</div>
+              <div class="text-xs text-slate-400 leading-relaxed">SOC2 Type II certified &amp; AES-256 encrypted</div>
+            </div>
+          </div>
+          <div
+            class="footer-status-pill inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-indigo-950/80 border border-indigo-500/30 text-[11px] font-mono font-bold text-indigo-200">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            SYSTEM SLA: 99.999% ACTIVE
+          </div>
+        </div>
+
+        <!-- QUADRANT 4 (Bottom-Right): Studio & Headquarters Column -->
+        <div class="footer-enterprise-col">
+          <h2 class="footer-col-title">
+            <span class="text-indigo-400 mr-2 font-bold">&#8226;</span> GLOBAL HEADQUARTERS
+          </h2>
+          <div class="space-y-3.5 mb-4">
+            <div>
+              <div class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 text-indigo-400 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                LOCATION
+              </div>
+              <div class="text-xs text-slate-400 leading-relaxed pl-5">
+                PerkPulse Cloud Infrastructure<br>
+                100 Montgomery St, Suite 2400<br>
+                San Francisco, CA 94104
+              </div>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 text-indigo-400 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                OPERATIONS &amp; SRE SUPPORT
+              </div>
+              <div class="text-xs text-slate-400 pl-5 leading-relaxed">
+                24/7/365 Autonomous Cloud Monitoring<br>
+                Dedicated Enterprise Support Desk
+              </div>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 text-indigo-400 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                  </path>
+                </svg>
+                PHONE &amp; EMAIL
+              </div>
+              <div class="text-xs text-slate-400 pl-5 leading-relaxed">
+                +1 (800) 550-PERK<br>
+                enterprise@perkpulse.com
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom Bar (Legal Links & Back to Top) -->
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 PerkPulse SaaS Technologies Inc. All rights reserved.
+        </div>
+        <div class="flex items-center gap-5 sm:gap-6 flex-wrap">
+          <a href="contact.html" class="footer-link">Privacy Policy</a>
+          <a href="contact.html" class="footer-link">Terms of Use</a>
+          <a href="contact.html" class="footer-link">Security &amp; SLA</a>
+          <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+            class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-all hover:scale-105 ml-1"
+            aria-label="Back to top">
+            &uarr;
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll To Top Button -->
+  <button type="button" id="scroll-to-top" class="scroll-top-btn" aria-label="Scroll back to top" title="Scroll to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+  </button>
+
+  <!-- Core JavaScript -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

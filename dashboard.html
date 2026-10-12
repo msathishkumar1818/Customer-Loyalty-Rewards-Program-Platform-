@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PerkPulse Client Portal - Business Loyalty & Rewards Dashboard</title>
+  <meta name="description"
+    content="Enterprise business client dashboard for configuring reward tiers, tracking customer engagement analytics, and managing live POS redemption activity.">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="PerkPulse Client Portal - Business Loyalty Dashboard">
+  <meta property="og:description"
+    content="Configure reward tiers, track customer analytics, and manage live POS redemptions across retail stores.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234f46e5'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
+
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            },
+            accent: {
+              500: '#10b981',
+              600: '#059669',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+
+<body class="bg-[#f8fafc] dark:bg-[#000000] text-slate-900 dark:text-white antialiased transition-colors duration-200">
+
+  <!-- Branded Page Loader -->
+  <div id="global-loader" class="global-loader" aria-hidden="true">
+    <div class="loader-spinner"></div>
+    <div class="loader-text">PerkPulse Loyalty OS</div>
+  </div>
+
+  <!-- ==========================================================================
+       TOP APPLICATION BAR (Matching Reference Portal Header)
+       ========================================================================== -->
+  <header class="dashboard-topbar">
+    <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+      <!-- Mobile Drawer Open Button (Hidden on Desktop >=1024px) -->
+      <button type="button" id="dashSidebarOpenBtn"
+        class="action-btn lg:hidden h-8 w-8 sm:h-9 sm:w-9 px-0 inline-flex items-center justify-center flex-shrink-0"
+        aria-label="Open Navigation Menu" title="Open Navigation Menu">
+        <svg class="w-5 h-5 text-slate-800 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <!-- Brand Logo + Portal Stack -->
+      <a href="index.html" class="flex items-center gap-2 sm:gap-2.5 text-inherit flex-shrink-0"
+        aria-label="PerkPulse Dashboard Home">
+        <div class="brand-icon flex-shrink-0">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <polygon
+              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              fill="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div class="dashboard-portal-title">
+          <span class="dashboard-portal-name">PERKPULSE</span>
+          <span class="dashboard-portal-sub hidden sm:block">CLIENT PORTAL</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Right Controls: Live Status -> Log Out -> RTL (Desktop) -> Theme Toggle (Desktop) -->
+    <div class="flex items-center gap-2 sm:gap-2.5 flex-shrink-0">
+
+
+      <!-- Logout Button (Cleanly isolated on mobile with plenty of space) -->
+
+      <!-- RTL Toggle Button (DESKTOP ONLY - On Mobile it is in the Drawer Menu) -->
+      <button type="button" class="action-btn hidden lg:inline-flex js-rtl-toggle" aria-label="Switch RTL/LTR"
+        title="Toggle RTL/LTR">
+        <span class="rtl-label-text font-black text-xs">RTL</span>
+      </button>
+
+      <!-- Theme Toggle Button (DESKTOP ONLY - On Mobile it is in the Drawer Menu) -->
+      <button type="button" class="action-btn hidden lg:inline-flex js-theme-toggle" aria-label="Toggle Theme"
+        title="Toggle Dark/Light Mode">
+        <svg class="theme-icon-sun w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        <svg class="theme-icon-moon w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+      </button>
+
+      <a href="login.html" class="dashboard-logout-btn whitespace-nowrap" title="Sign out of Business Portal">
+        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+        </svg>
+        <span class="font-extrabold text-xs">Log Out</span>
+      </a>
+
+    </div>
+  </header>
+
+  <!-- Mobile Sidebar Backdrop Overlay -->
+  <div id="dashSidebarBackdrop" class="dash-sidebar-backdrop lg:hidden" aria-hidden="true"></div>
+
+  <!-- ==========================================================================
+       DASHBOARD APPLICATION SHELL (Fixed Sidebar on Desktop + Off-Canvas on Mobile)
+       ========================================================================== -->
+  <div class="dashboard-app-layout min-h-[calc(100vh-61px)]">
+
+    <!-- Left Sidebar (Drawer on Mobile, Fixed 260px on Desktop) -->
+    <aside class="dashboard-sidebar" id="dashboardSidebar" aria-label="Dashboard Sidebar">
+      <div>
+        <!-- Mobile Drawer Header with Close Button (Visible only on lg:hidden) -->
+        <div
+          class="dash-drawer-header lg:hidden flex items-center justify-between pb-3.5 mb-3 border-b border-slate-200 dark:border-neutral-800">
+          <div class="flex items-center gap-2">
+            <div class="brand-icon flex-shrink-0">
+              <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  fill="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div>
+              <span
+                class="font-heading font-black text-sm tracking-tight text-slate-900 dark:text-white block leading-none">PERKPULSE</span>
+              <span
+                class="text-[10px] font-bold text-slate-500 dark:text-neutral-400 uppercase tracking-wider">Navigation
+                Menu</span>
+            </div>
+          </div>
+          <button type="button" id="dashSidebarCloseBtn"
+            class="action-btn h-8 w-8 px-0 inline-flex items-center justify-center rounded-lg text-slate-600 hover:text-slate-900 dark:text-neutral-300 dark:hover:text-white"
+            aria-label="Close navigation menu" title="Close Menu">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Drawer Display & Controls (RTL & Dark Mode buttons directly inside Menu Button) -->
+        <div
+          class="lg:hidden p-3 mb-4 rounded-xl bg-slate-100 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800">
+          <span
+            class="text-[10px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-neutral-400 block mb-2">Display
+            &amp; Language Settings</span>
+          <div class="grid grid-cols-2 gap-2">
+            <!-- RTL Toggle Button inside Mobile Menu -->
+            <button type="button"
+              class="action-btn w-full justify-center js-rtl-toggle py-2.5 px-2 text-xs font-bold shadow-sm gap-1.5"
+              aria-label="Switch RTL/LTR" title="Toggle RTL/LTR">
+              <svg class="w-4 h-4 flex-shrink-0 text-slate-700 dark:text-neutral-300" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+              </svg>
+              <span class="rtl-label-text font-extrabold text-xs">RTL Mode</span>
+            </button>
+
+            <!-- Dark/Light Theme Toggle inside Mobile Menu -->
+            <button type="button"
+              class="action-btn w-full justify-center js-theme-toggle py-2.5 px-2 text-xs font-bold shadow-sm gap-1.5"
+              aria-label="Toggle Theme" title="Toggle Dark/Light Mode">
+              <!-- Sun Icon (Shown only in Dark Mode) -->
+              <svg class="theme-icon-sun w-4 h-4 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+              <!-- Moon Icon (Shown only in Light Mode) -->
+              <svg class="theme-icon-moon w-4 h-4 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+              </svg>
+              <span class="theme-label-text font-extrabold text-xs">Dark Mode</span>
+            </button>
+          </div>
+        </div>
+
+        <nav class="dashboard-sidebar-nav mb-6" aria-label="Dashboard Navigation">
+
+          <!-- Tab 1: Overview (Active) -->
+          <button type="button" class="dashboard-nav-item active js-dashboard-tab-btn" data-tab="overview">
+            <span class="flex items-center gap-2.5">
+              <svg class="w-4 h-4 text-indigo-500 dark:text-indigo-400" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+                <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+                <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+                <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+              </svg>
+              <span>Overview</span>
+            </span>
+          </button>
+
+          <!-- Tab 2: Reward Tiers -->
+          <button type="button" class="dashboard-nav-item js-dashboard-tab-btn" data-tab="tiers">
+            <span class="flex items-center gap-2.5">
+              <svg class="w-4 h-4 text-slate-500 dark:text-neutral-400" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                </path>
+              </svg>
+              <span>Reward Tiers</span>
+            </span>
+            <span class="dashboard-badge-counter">4</span>
+          </button>
+
+          <!-- Tab 3: Customer Engagement Analytics -->
+          <button type="button" class="dashboard-nav-item js-dashboard-tab-btn" data-tab="analytics">
+            <span class="flex items-center gap-2.5">
+              <svg class="w-4 h-4 text-slate-500 dark:text-neutral-400" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+                </path>
+              </svg>
+              <span>Analytics</span>
+            </span>
+          </button>
+
+          <!-- Tab 4: Redemption Activity -->
+          <button type="button" class="dashboard-nav-item js-dashboard-tab-btn" data-tab="redemptions">
+            <span class="flex items-center gap-2.5">
+              <svg class="w-4 h-4 text-slate-500 dark:text-neutral-400" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4">
+                </path>
+              </svg>
+              <span>Redemptions</span>
+            </span>
+            <span class="dashboard-badge-counter">3</span>
+          </button>
+
+          <!-- Tab 5: POS Registers & Fleet -->
+          <button type="button" class="dashboard-nav-item js-dashboard-tab-btn" data-tab="registers">
+            <span class="flex items-center gap-2.5">
+              <svg class="w-4 h-4 text-slate-500 dark:text-neutral-400" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                </path>
+              </svg>
+              <span>POS Registers</span>
+            </span>
+            <span class="dashboard-badge-counter">112</span>
+          </button>
+
+          <!-- Tab 6: Return to Public Website -->
+          <a href="index.html" class="dashboard-nav-item">
+            <span class="flex items-center gap-2.5">
+              <svg class="w-4 h-4 text-slate-500 dark:text-neutral-400" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                </path>
+              </svg>
+              <span>Public Website</span>
+            </span>
+            <svg class="w-3.5 h-3.5 text-slate-400 dark:text-neutral-500" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+            </svg>
+          </a>
+
+        </nav>
+      </div>
+
+      <!-- Bottom Client Facility Card (Direct match to reference image bottom card!) -->
+      <div class="dashboard-facility-box">
+        <span
+          class="text-[10px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-neutral-400 block mb-1">
+          CLIENT FACILITY
+        </span>
+        <h4 class="font-heading text-xs font-extrabold text-slate-900 dark:text-white mb-1.5">
+          FreshWay Supermarket HQ
+        </h4>
+        <div class="flex items-center gap-1.5 text-[11px] font-bold text-emerald-600 dark:text-emerald-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>24/7 Active Monitoring</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area (Properly Offset, Fluidly Scrolls) -->
+    <main class="dashboard-main-content">
+
+      <!-- ==========================================================================
+           HERO WELCOME BANNER (Exact Match to Reference Style & Button)
+           ========================================================================== -->
+      <div class="dashboard-hero-banner">
+        <div>
+          <h1 class="font-heading text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-2">
+            Hello, Rohit
+          </h1>
+          <p class="text-xs sm:text-sm text-neutral-200 font-semibold flex flex-wrap items-center gap-2">
+            <span>FreshWay Supermarket Group</span>
+            <span class="text-neutral-400">•</span>
+            <span>Facility ID: AP-CR-9042</span>
+            <span class="text-neutral-400">•</span>
+            <span>Lead Engineer: Daniel Mathew</span>
+          </p>
+        </div>
+
+        <!-- Orange Action Button (Matching Reference Button Placement) -->
+        <button type="button"
+          onclick="alert('Opening Reward Tier Configuration Studio...'); const t = document.getElementById('pane-tiers'); if(t) t.scrollIntoView({behavior:'smooth'});"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs font-extrabold text-white bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 shadow-md transition-all flex-shrink-0">
+          <span class="text-base leading-none font-black">+</span>
+          <span>Configure Reward Tier</span>
+        </button>
+      </div>
+
+      <!-- ==========================================================================
+           OVERVIEW HEADER & 4 SYMMETRICAL KPI CARDS (Pixel-Perfect Alignment)
+           ========================================================================== -->
+      <div class="mb-6">
+        <h2 id="dashViewTitle"
+          class="font-heading text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight mb-1">
+          Overview
+        </h2>
+        <p id="dashViewSubtitle" class="text-xs sm:text-sm text-slate-600 dark:text-neutral-300 font-semibold">
+          Everything open on your refrigeration and retail loyalty facility account right now.
+        </p>
+      </div>
+
+      <!-- 4 Symmetrical KPI Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8 items-stretch">
+
+        <!-- Card 1: Active Reward Tiers -->
+        <div class="dashboard-kpi-card">
+          <span
+            class="text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-neutral-400 whitespace-nowrap block">ACTIVE
+            TIERS</span>
+          <div class="dashboard-kpi-val text-sky-600 dark:text-sky-400">4</div>
+          <span
+            class="text-xs text-slate-700 dark:text-neutral-300 font-bold leading-relaxed min-h-[36px] flex items-center">Bronze,
+            Silver, Gold &amp; Platinum VIP</span>
+        </div>
+
+        <!-- Card 2: Members Enrolled -->
+        <div class="dashboard-kpi-card">
+          <span
+            class="text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-neutral-400 whitespace-nowrap block">MEMBERS
+            ENROLLED</span>
+          <div class="dashboard-kpi-val text-amber-600 dark:text-amber-400">48,290</div>
+          <span
+            class="text-xs text-slate-700 dark:text-neutral-300 font-bold leading-relaxed min-h-[36px] flex items-center">+1,420
+            new passes enrolled this week</span>
+        </div>
+
+        <!-- Card 3: Points Redeemed Today -->
+        <div class="dashboard-kpi-card">
+          <span
+            class="text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-neutral-400 whitespace-nowrap block">POINTS
+            REDEEMED</span>
+          <div class="dashboard-kpi-val text-emerald-600 dark:text-emerald-400">142,750</div>
+          <span
+            class="text-xs text-slate-700 dark:text-neutral-300 font-bold leading-relaxed min-h-[36px] flex items-center">Active
+            across 112 POS checkout </span>
+        </div>
+
+        <!-- Card 4: Redemption Value -->
+        <div class="dashboard-kpi-card">
+          <span
+            class="text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-neutral-400 whitespace-nowrap block">REDEMPTION
+            VALUE</span>
+          <div class="dashboard-kpi-val text-indigo-600 dark:text-indigo-400">$14,275</div>
+          <span
+            class="text-xs text-slate-700 dark:text-neutral-300 font-bold leading-relaxed min-h-[36px] flex items-center">100%
+            verified &amp; fraud-screened</span>
+        </div>
+
+      </div>
+
+      <!-- ==========================================================================
+           MAIN CONTENT GRID (Matching Reference 2-Column Module Layout)
+           =========================================================================      <div id="dashboardModulesGrid" class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+        <!-- Left Column: Active Redemptions & Tier Studio (50% Width on Desktop) -->
+      <div id="dashboardColLeft" class="lg:col-span-6 space-y-6">
+
+        <!-- Module 1: Live Cashier Redemption Activity ("Active Service Tickets" in Reference) -->
+        <div id="pane-redemptions" class="dashboard-widget-card js-dashboard-pane">
+          <div class="dashboard-widget-header">
+            <div class="flex items-center gap-2">
+              <h3
+                class="font-heading text-sm sm:text-base font-extrabold text-slate-900 dark:text-white whitespace-nowrap">
+                Active Service Tickets
+              </h3>
+              <span class="dashboard-badge-counter flex-shrink-0">Live</span>
+            </div>
+            <button type="button" onclick="alert('Showing full chronological cashier audit log.');"
+              class="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline whitespace-nowrap">
+              View all tickets &rarr;
+            </button>
+          </div>
+
+          <div class="p-4 sm:p-5 divide-y divide-slate-100 dark:divide-neutral-800/80">
+
+            <!-- Row 1 -->
+            <div class="activity-stream-row pb-3.5 flex items-start justify-between gap-3">
+              <div class="flex-grow min-w-0 pr-2">
+                <div class="text-[11px] font-bold text-slate-500 dark:text-neutral-400 mb-1 leading-none">
+                  WO-26-8814 • PO-99210 • FreshWay Superstore
+                </div>
+                <h4 class="font-heading text-sm font-extrabold text-slate-900 dark:text-white leading-snug mb-1">
+                  Parallel Rack B • Low-Temp Compressor Valve
+                </h4>
+                <div class="text-xs text-slate-600 dark:text-neutral-300 font-medium leading-tight">
+                  1,500 Pts redeemed ($15.00 discount) • Cashier ID: CK-901
+                </div>
+              </div>
+              <span
+                class="px-2.5 py-1 rounded text-[11px] font-black uppercase tracking-wider bg-sky-100 dark:bg-sky-950 border border-sky-300 dark:border-sky-800 text-sky-800 dark:text-sky-400 flex-shrink-0 whitespace-nowrap min-w-[90px] text-center self-start mt-1">
+                INSPECTION
+              </span>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="activity-stream-row py-3.5 flex items-start justify-between gap-3">
+              <div class="flex-grow min-w-0 pr-2">
+                <div class="text-[11px] font-bold text-slate-500 dark:text-neutral-400 mb-1 leading-none">
+                  WO-26-8815 • PO-99212 • FreshWay Downtown Superstore
+                </div>
+                <h4 class="font-heading text-sm font-extrabold text-slate-900 dark:text-white leading-snug mb-1">
+                  Condenser Fan Motor 3 • High Pressure Sensor Calibration
+                </h4>
+                <div class="text-xs text-slate-600 dark:text-neutral-300 font-medium leading-tight">
+                  Elena Rostova (Member #98421) • $184.20 Grocery basket
+                </div>
+              </div>
+              <span
+                class="px-2.5 py-1 rounded text-[11px] font-black uppercase tracking-wider bg-emerald-100 dark:bg-emerald-950 border border-emerald-300 dark:border-emerald-800 text-emerald-800 dark:text-emerald-400 flex-shrink-0 whitespace-nowrap min-w-[90px] text-center self-start mt-1">
+                VERIFIED
+              </span>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="activity-stream-row pt-3.5 flex items-start justify-between gap-3">
+              <div class="flex-grow min-w-0 pr-2">
+                <div class="text-[11px] font-bold text-slate-500 dark:text-neutral-400 mb-1 leading-none">
+                  WO-26-8816 • PO-99215 • FreshWay Express Airport
+                </div>
+                <h4 class="font-heading text-sm font-extrabold text-slate-900 dark:text-white leading-snug mb-1">
+                  Walk-in Cooler 02 • Defrost Thermostat Verification
+                </h4>
+                <div class="text-xs text-slate-600 dark:text-neutral-300 font-medium leading-tight">
+                  FreshWay Airport Terminal • Authenticated via contactless NFC
+                </div>
+              </div>
+              <span
+                class="px-2.5 py-1 rounded text-[11px] font-black uppercase tracking-wider bg-indigo-100 dark:bg-indigo-950 border border-indigo-300 dark:border-indigo-800 text-indigo-800 dark:text-indigo-400 flex-shrink-0 whitespace-nowrap min-w-[90px] text-center self-start mt-1">
+                APPROVED
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Module 2: Reward Tiers Configuration Studio ("Configuring reward tiers") -->
+        <div id="pane-tiers" class="dashboard-widget-card js-dashboard-pane">
+          <div class="dashboard-widget-header">
+            <div class="min-w-0 pr-2">
+              <h3 class="font-heading text-sm sm:text-base font-extrabold text-slate-900 dark:text-white">
+                Reward Tiers Configuration Studio
+              </h3>
+              <p class="text-xs text-slate-600 dark:text-neutral-300 font-medium mt-0.5">
+                Set points accrual rules, tier thresholds, and instant cashier discounts.
+              </p>
+            </div>
+            <span
+              class="px-2.5 py-1 rounded text-[11px] font-bold bg-slate-100 dark:bg-neutral-800 text-slate-800 dark:text-neutral-200 border border-slate-300 dark:border-neutral-700 whitespace-nowrap flex-shrink-0">
+              Auto-Sync to 112 POS
+            </span>
+          </div>
+
+          <div class="p-4 sm:p-5 space-y-3">
+
+            <!-- Tier 1: Bronze -->
+            <div
+              class="p-3 sm:p-3.5 rounded-xl bg-slate-50 dark:bg-neutral-900/60 border border-slate-200 dark:border-neutral-800 flex items-center justify-between gap-3 min-h-[64px]">
+              <div class="flex items-center gap-3 min-w-0 flex-1">
+                <div
+                  class="w-9 h-9 rounded-lg bg-amber-100 dark:bg-amber-900/40 border border-amber-300 dark:border-amber-700 flex items-center justify-center font-extrabold text-xs text-amber-800 dark:text-amber-400 flex-shrink-0">
+                  B
+                </div>
+                <div class="min-w-0 flex-1">
+                  <h5 class="font-heading text-xs font-bold text-slate-900 dark:text-white leading-tight">Bronze Starter (0 - 500 Pts)</h5>
+                  <span class="text-[11px] text-slate-600 dark:text-neutral-300 font-medium block leading-tight mt-0.5">1x Base Points • 5% Instant Cashier Voucher</span>
+                </div>
+              </div>
+              <span
+                class="text-xs font-extrabold text-slate-700 dark:text-neutral-300 flex-shrink-0 whitespace-nowrap text-right min-w-[85px]">Default Tier</span>
+            </div>
+
+            <!-- Tier 2: Silver -->
+            <div
+              class="p-3 sm:p-3.5 rounded-xl bg-slate-50 dark:bg-neutral-900/60 border border-slate-200 dark:border-neutral-800 flex items-center justify-between gap-3 min-h-[64px]">
+              <div class="flex items-center gap-3 min-w-0 flex-1">
+                <div
+                  class="w-9 h-9 rounded-lg bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-600 flex items-center justify-center font-extrabold text-xs text-slate-800 dark:text-slate-300 flex-shrink-0">
+                  S
+                </div>
+                <div class="min-w-0 flex-1">
+                  <h5 class="font-heading text-xs font-bold text-slate-900 dark:text-white leading-tight">Silver Preferred (500 - 2,500 Pts)</h5>
+                  <span class="text-[11px] text-slate-600 dark:text-neutral-300 font-medium block leading-tight mt-0.5">1.5x Points Multiplier • 8% Instant Cashier Voucher</span>
+                </div>
+              </div>
+              <span
+                class="text-xs font-extrabold text-indigo-600 dark:text-indigo-400 flex-shrink-0 whitespace-nowrap text-right min-w-[85px]">14,210 Members</span>
+            </div>
+
+            <!-- Tier 3: Gold VIP -->
+            <div
+              class="p-3 sm:p-3.5 rounded-xl bg-slate-50 dark:bg-neutral-900/60 border border-slate-200 dark:border-neutral-800 flex items-center justify-between gap-3 min-h-[64px]">
+              <div class="flex items-center gap-3 min-w-0 flex-1">
+                <div
+                  class="w-9 h-9 rounded-lg bg-yellow-100 dark:bg-yellow-950/60 border border-yellow-300 dark:border-yellow-600 flex items-center justify-center font-extrabold text-xs text-yellow-800 dark:text-yellow-400 flex-shrink-0">
+                  G
+                </div>
+                <div class="min-w-0 flex-1">
+                  <h5 class="font-heading text-xs font-bold text-slate-900 dark:text-white leading-tight">Gold VIP (2,500 - 10,000 Pts)</h5>
+                  <span class="text-[11px] text-slate-600 dark:text-neutral-300 font-medium block leading-tight mt-0.5">2x Points Multiplier • 12% Voucher + Priority Lane</span>
+                </div>
+              </div>
+              <span
+                class="text-xs font-extrabold text-amber-600 dark:text-yellow-400 flex-shrink-0 whitespace-nowrap text-right min-w-[85px]">8,940 Members</span>
+            </div>
+
+            <!-- Live Simulator Multiplier Control -->
+            <div
+              class="p-4 rounded-xl bg-indigo-50 dark:bg-indigo-950/30 border border-indigo-200 dark:border-indigo-800/60 mt-3">
+              <div class="flex items-center justify-between mb-2">
+                <label for="dashTierMultiplierSlider"
+                  class="text-xs font-extrabold uppercase tracking-wider text-indigo-800 dark:text-indigo-300 whitespace-nowrap">
+                  Fine-Tune Gold Multiplier
+                </label>
+                <span id="dashTierMultiplierVal"
+                  class="font-heading text-base font-extrabold text-slate-900 dark:text-white">2.0x</span>
+              </div>
+              <input type="range" id="dashTierMultiplierSlider" min="1.0" max="4.0" step="0.5" value="2.0"
+                class="calc-range-slider mb-2" aria-label="Tier Multiplier Slider">
+              <div class="flex justify-between text-[11px] font-bold text-slate-600 dark:text-neutral-400">
+                <span>1.0x (Standard)</span>
+                <span>2.0x (Active)</span>
+                <span>4.0x (Holiday Double-Up)</span>
+              </div>
+            </div>
+
+            <div class="pt-1">
+              <button type="button"
+                onclick="alert('Rules updated! Broadcasted tier configuration to all 112 POS registers in 18ms.');"
+                class="btn btn-primary w-full text-center py-2.5 text-xs font-bold shadow-md">
+                Save Tier Rules &amp; Broadcast to POS
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Customer Engagement Analytics & Fleet Sync (50% Width on Desktop) -->
+      <div id="dashboardColRight" class="lg:col-span-6 space-y-6">
+
+        <!-- Module 3: Customer Engagement Analytics ("Tracking customer engagement analytics") -->
+        <div id="pane-analytics" class="dashboard-widget-card js-dashboard-pane">
+          <div class="dashboard-widget-header">
+            <h3
+              class="font-heading text-sm sm:text-base font-extrabold text-slate-900 dark:text-white whitespace-nowrap">
+              Hourly Redemption Velocity
+            </h3>
+            <span
+              class="text-xs font-extrabold text-emerald-600 dark:text-emerald-400 whitespace-nowrap flex-shrink-0">+14.2%
+              Lift</span>
+          </div>
+
+          <div class="p-4 sm:p-5">
+
+            <!-- Visual Velocity Chart Bars -->
+            <div
+              class="flex items-end justify-between gap-2 pt-2 pb-4 border-b border-slate-200 dark:border-neutral-800">
+              <div class="velocity-bar-col">
+                <div class="velocity-bar-track">
+                  <div class="velocity-bar-fill" style="height: 35%;"></div>
+                </div>
+                <span class="text-[10px] font-bold text-slate-600 dark:text-neutral-400">09:00</span>
+              </div>
+              <div class="velocity-bar-col">
+                <div class="velocity-bar-track">
+                  <div class="velocity-bar-fill" style="height: 60%;"></div>
+                </div>
+                <span class="text-[10px] font-bold text-slate-600 dark:text-neutral-400">11:00</span>
+              </div>
+              <div class="velocity-bar-col">
+                <div class="velocity-bar-track">
+                  <div class="velocity-bar-fill" style="height: 95%;"></div>
+                </div>
+                <span class="text-[10px] font-bold text-slate-600 dark:text-neutral-400">13:00</span>
+              </div>
+              <div class="velocity-bar-col">
+                <div class="velocity-bar-track">
+                  <div class="velocity-bar-fill" style="height: 70%;"></div>
+                </div>
+                <span class="text-[10px] font-bold text-slate-600 dark:text-neutral-400">15:00</span>
+              </div>
+              <div class="velocity-bar-col">
+                <div class="velocity-bar-track">
+                  <div class="velocity-bar-fill" style="height: 85%;"></div>
+                </div>
+                <span class="text-[10px] font-bold text-slate-600 dark:text-neutral-400">17:00</span>
+              </div>
+              <div class="velocity-bar-col">
+                <div class="velocity-bar-track">
+                  <div class="velocity-bar-fill" style="height: 50%;"></div>
+                </div>
+                <span class="text-[10px] font-bold text-slate-600 dark:text-neutral-400">19:00</span>
+              </div>
+            </div>
+
+            <!-- Engagement Metric Grid (Clean Single-Line Alignment) -->
+            <div class="grid grid-cols-2 gap-3 mt-4">
+              <div
+                class="p-3.5 rounded-lg bg-slate-50 dark:bg-neutral-900/60 border border-slate-200 dark:border-neutral-800">
+                <span
+                  class="text-[10px] font-extrabold uppercase text-slate-500 dark:text-neutral-400 block mb-0.5 whitespace-nowrap">Repeat
+                  Visit Rate</span>
+                <span class="font-heading text-lg font-extrabold text-slate-900 dark:text-white block">78.4%</span>
+                <span
+                  class="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold block mt-0.5 whitespace-nowrap">&uarr;
+                  +6.8% lift vs peers</span>
+              </div>
+              <div
+                class="p-3.5 rounded-lg bg-slate-50 dark:bg-neutral-900/60 border border-slate-200 dark:border-neutral-800">
+                <span
+                  class="text-[10px] font-extrabold uppercase text-slate-500 dark:text-neutral-400 block mb-0.5 whitespace-nowrap">Wallet
+                  Pass Rate</span>
+                <span class="font-heading text-lg font-extrabold text-slate-900 dark:text-white block">84.6%</span>
+                <span
+                  class="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold block mt-0.5 whitespace-nowrap">Apple
+                  &amp; Google Pass</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Module 4: Next Scheduled Visit / POS Fleet Sync (Exact Match to Reference Style) -->
+        <div id="pane-registers" class="dashboard-widget-card js-dashboard-pane">
+          <div class="dashboard-widget-header">
+            <h3
+              class="font-heading text-sm sm:text-base font-extrabold text-slate-900 dark:text-white whitespace-nowrap">
+              Next Scheduled Visit
+            </h3>
+            <span
+              class="text-xs font-bold text-slate-600 dark:text-neutral-300 whitespace-nowrap flex-shrink-0">FreshWay
+              Fleet</span>
+          </div>
+
+          <div class="p-4 sm:p-5">
+
+            <!-- Scheduled Box (Matching the "11 OCT Compressor Rack B Calibration" card from reference!) -->
+            <div
+              class="p-4 rounded-xl bg-slate-50 dark:bg-neutral-900/80 border border-slate-200 dark:border-neutral-800 flex items-start gap-3.5 mb-4">
+              <div
+                class="w-12 h-12 rounded-lg bg-indigo-100 dark:bg-indigo-950 border border-indigo-300 dark:border-indigo-700 flex flex-col items-center justify-center flex-shrink-0 text-indigo-700 dark:text-indigo-300">
+                <span class="text-xs font-black leading-none">11</span>
+                <span class="text-[9px] font-extrabold uppercase tracking-wider">OCT</span>
+              </div>
+              <div class="min-w-0 flex-grow">
+                <h4 class="font-heading text-sm font-extrabold text-slate-900 dark:text-white leading-snug">
+                  Compressor Rack B Calibration
+                </h4>
+                <p class="text-xs text-slate-600 dark:text-neutral-300 font-semibold mt-1">
+                  Master Engineer: Daniel Mathew • All 112 lanes
+                </p>
+                <div class="flex items-center gap-2 mt-2 flex-wrap">
+                  <span
+                    class="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1 whitespace-nowrap">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    18ms Avg Latency
+                  </span>
+                  <span class="text-slate-400 dark:text-neutral-500">•</span>
+                  <span class="text-[11px] text-slate-600 dark:text-neutral-400 font-medium whitespace-nowrap">Offline
+                    Queue Ready</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Terminal Image Snapshot -->
+            <div class="rounded-xl overflow-hidden border border-slate-200 dark:border-neutral-800 mb-4 relative">
+              <img src="assets/images/dashboard/pos-terminal-sync.jpg" alt="Point of Sale Cashier Lane Sync Terminal"
+                class="w-full h-36 object-cover" loading="lazy">
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+                <span class="text-xs font-bold text-white">
+                  Hardware Status: NCR, Clover &amp; Toast Synchronized
+                </span>
+              </div>
+            </div>
+
+            <!-- Actions (Even Height and Clean Alignment) -->
+            <div class="grid grid-cols-2 gap-3">
+              <button type="button"
+                onclick="alert('Manual sync signal sent to all 112 POS cashier lanes! Status: All Online.');"
+                class="btn btn-secondary w-full text-center py-2.5 text-xs font-extrabold whitespace-nowrap">
+                Sync All Lanes
+              </button>
+              <button type="button" onclick="alert('Generating compliance & audit report (CSV)...');"
+                class="btn btn-primary w-full text-center py-2.5 text-xs font-extrabold whitespace-nowrap shadow-sm">
+                Export Audit CSV
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+  </div>
+
+  </main>
+
+  </div>
+
+  <!-- Core JavaScript -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

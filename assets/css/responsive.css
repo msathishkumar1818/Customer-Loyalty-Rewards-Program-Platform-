@@ -1,0 +1,299 @@
+/* ==========================================================================
+   PERKPULSE - RESPONSIVE STYLES
+   Breakpoints: 320, 375, 425, 768, 820, 1024, 1280, 1440, 1536, 1920+
+   ========================================================================== */
+
+/* Large Desktop (1440px and above) - Unified Container Symmetry */
+@media (min-width: 1440px) {
+  .header-container,
+  .site-container,
+  .footer-container {
+    max-width: var(--container-max-width);
+  }
+}
+
+/* ==========================================================================
+   DESKTOP MONITORS (1381px and above)
+   Strictly hide mobile drawer, mobile backdrop, and mobile toggle buttons.
+   ========================================================================== */
+@media (min-width: 1381px) {
+  .mobile-nav-drawer,
+  .mobile-nav-backdrop {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translateX(100%) !important;
+  }
+
+  html[dir="rtl"] .mobile-nav-drawer {
+    transform: translateX(-100%) !important;
+  }
+
+  .mobile-toggle-btn {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   TABLET & COMPACT SCREENS (iPad Pro 13, iPad Pro 12.9, iPad Air, Surface Pro, iPad Mini, Nest Hub Max - up to 1380px)
+   Header: Sleek Single-Line Brand + Hamburger Menu Toggle Button
+   Footer: Balanced Atelier 2x2 Symmetrical Grid
+   ========================================================================== */
+@media (max-width: 1380px) {
+  .desktop-nav,
+  .desktop-utility-actions {
+    display: none !important;
+  }
+
+  .mobile-toggle-btn {
+    display: flex !important;
+  }
+
+  .header-login-btn,
+  .header-login-link,
+  .header-cta-btn {
+    display: none !important;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 3.5rem 3rem !important;
+  }
+
+  .footer-brand-col,
+  .footer-nav-col,
+  .footer-platform-col,
+  .footer-enterprise-col {
+    grid-column: span 1 !important;
+  }
+
+  .footer-bottom {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+}
+
+/* Small Tablets & Large Phones (426px - 767px) */
+@media (max-width: 767px) {
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+
+  .footer-brand-col,
+  .footer-nav-col,
+  .footer-platform-col,
+  .footer-enterprise-col {
+    grid-column: span 1 !important;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+}
+
+/* Mobile Phones (375px - 425px) */
+@media (max-width: 425px) {
+  .brand-name {
+    font-size: 1.08rem;
+  }
+
+  .brand-badge {
+    display: none;
+  }
+
+  .mobile-nav-drawer {
+    width: 90%;
+  }
+
+  .hero-main-img {
+    height: 320px;
+  }
+
+  .floating-points-card {
+    position: static;
+    margin-top: 1rem;
+    animation: none;
+  }
+
+  .floating-tier-badge {
+    position: static;
+    margin-bottom: 0.75rem;
+    display: inline-flex;
+  }
+
+  .mosaic-card-primary {
+    height: 300px;
+  }
+
+  .cta-banner-content {
+    padding: 3rem 1.25rem;
+  }
+
+  .os-hero-window img {
+    height: 280px;
+  }
+
+  .about-hero-primary-img {
+    height: 260px;
+  }
+
+  .about-hero-secondary-card {
+    position: static;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .sla-wrapper {
+    padding: 1.75rem 1.25rem;
+  }
+
+  /* Pricing Page Mobile Tuning */
+  .pricing-tier-img {
+    height: 140px;
+  }
+
+  .calc-wrapper-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .addon-pod-img {
+    height: 130px;
+  }
+
+  .trust-img {
+    height: 120px;
+  }
+
+  .concierge-img {
+    height: 180px;
+  }
+
+  .contact-map-frame {
+    height: 280px;
+  }
+
+  .contact-form-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  #scroll-to-top {
+    bottom: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+  }
+
+  html[dir="rtl"] #scroll-to-top {
+    left: 1rem;
+  }
+}
+
+/* Compact Phones (320px) */
+@media (max-width: 360px) {
+  .brand-name {
+    font-size: 1rem;
+  }
+
+  .brand-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .mobile-toggle-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .mobile-controls-row {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .mobile-control-btn {
+    width: 100%;
+  }
+
+  .hero-main-img {
+    height: 260px;
+  }
+
+  .os-hero-window img {
+    height: 220px;
+  }
+
+  .os-telemetry-chip {
+    padding: 0.5rem 0.65rem;
+    font-size: 0.72rem;
+  }
+
+  .pricing-tier-img {
+    height: 120px;
+  }
+
+  .addon-pod-img {
+    height: 110px;
+  }
+
+  .trust-img {
+    height: 110px;
+  }
+
+  .concierge-img {
+    height: 150px;
+  }
+
+  /* Features Page Mobile Tuning (Samsung Galaxy A55 & Compact Phones) */
+  .rule-simulator-card {
+    padding: 1rem 0.85rem !important;
+    border-radius: 1rem !important;
+  }
+
+  .rule-logic-row {
+    padding: 0.6rem 0.75rem !important;
+    gap: 0.5rem !important;
+  }
+
+  .feature-pillar-body {
+    padding: 1rem !important;
+  }
+}
+
+/* Global Mobile Screen Enhancements (Up to 640px) */
+@media (max-width: 640px) {
+  :root {
+    --container-padding: 1rem !important;
+  }
+
+  .site-container,
+  .header-container,
+  .footer-container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .rule-simulator-card {
+    padding: 1.15rem 0.95rem;
+  }
+
+  .rule-logic-row {
+    padding: 0.65rem 0.85rem;
+  }
+}
+
+/* Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

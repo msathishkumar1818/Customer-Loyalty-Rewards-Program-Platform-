@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PerkPulse - Enterprise Loyalty Operating System & Developer Cloud</title>
+  <meta name="description"
+    content="High-throughput headless loyalty infrastructure and multi-location retail rewards operating system for global enterprise brands.">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="PerkPulse - Enterprise Loyalty Operating System">
+  <meta property="og:description"
+    content="High-throughput headless loyalty infrastructure for global enterprise retailers.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234f46e5'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
+
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS CDN (Configured with Custom Colors) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            },
+            accent: {
+              500: '#10b981',
+              600: '#059669',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+
+<body class="bg-body text-main transition-colors duration-200">
+
+  <!-- Skip to Main Content Accessibility Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Global Reading Progress Bar -->
+  <div id="readingProgressBar" class="reading-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+    aria-valuemax="100" aria-label="Page reading progress">
+  </div>
+
+  <!-- =========================================================================
+       GLOBAL UNIFIED FIXED HEADER (Single-Line Compact Layout)
+       ========================================================================= -->
+  <header class="site-header" id="main-header">
+    <div class="header-container">
+
+      <!-- Logo + Brand -->
+      <a href="index.html" class="brand-link" aria-label="PerkPulse Homepage">
+        <div class="brand-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon
+              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+            </polygon>
+          </svg>
+        </div>
+        <div class="brand-name">
+          Perk<span>Pulse</span>
+
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <!-- 1. Home (Dropdown) -->
+        <div class="nav-item">
+          <button type="button" class="nav-link dropdown-btn active" id="homeDropdownBtn" aria-expanded="false"
+            aria-haspopup="true">
+            <span>Home</span>
+            <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="dropdown-menu" id="homeDropdownMenu" role="menu" aria-labelledby="homeDropdownBtn">
+            <a href="index.html" class="dropdown-link" role="menuitem">
+              <span>Home 1</span>
+              <span class="dropdown-badge">Retail Tech</span>
+            </a>
+            <a href="home-2.html" class="dropdown-link active" role="menuitem">
+              <span>Home 2</span>
+              <span class="dropdown-badge">Enterprise OS</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. About (Mandatory) -->
+        <div class="nav-item">
+          <a href="about.html" class="nav-link">About</a>
+        </div>
+
+        <!-- 3. Features -->
+        <div class="nav-item">
+          <a href="features.html" class="nav-link">Features</a>
+        </div>
+
+
+
+        <!-- 4. Pricing -->
+        <div class="nav-item">
+          <a href="pricing.html" class="nav-link">Pricing</a>
+        </div>
+
+
+
+        <!-- 5. Contact (Directly visible) -->
+        <div class="nav-item">
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+
+
+        <!-- 6. Dashboard -->
+        <div class="nav-item">
+          <a href="dashboard.html" class="nav-link">Dashboard</a>
+        </div>
+      </nav>
+
+      <!-- Desktop Actions: RTL/LTR, Dark Mode, Login, CTA Button -->
+      <div class="header-actions">
+        <!-- RTL/LTR Toggle -->
+        <button type="button" class="action-icon-btn js-rtl-toggle desktop-utility-actions" title="Toggle RTL/LTR"
+          aria-label="Toggle Text Direction">
+          <span class="rtl-label-text font-bold text-xs tracking-wider">RTL</span>
+        </button>
+
+        <!-- Dark Mode Toggle -->
+        <button type="button" class="action-icon-btn js-theme-toggle desktop-utility-actions"
+          title="Toggle Dark/Light Mode" aria-label="Toggle Dark Mode">
+          <svg class="theme-icon-sun hidden dark:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon-moon block dark:hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Login Link -->
+        <a href="login.html" class="header-login-link desktop-utility-actions" id="headerLoginBtn">
+          <span>Login</span>
+        </a>
+
+        <!-- Header CTA Button -->
+        <a href="login.html" class="header-cta-btn" id="headerCtaBtn">
+          <span>Get Started</span>
+          <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button type="button" class="mobile-toggle-btn" id="mobileMenuOpenBtn" aria-label="Open Mobile Navigation Menu"
+          aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Backdrop & Menu -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop" aria-hidden="true"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation Menu">
+    <div class="mobile-nav-header">
+      <div class="flex items-center gap-2">
+        <div class="brand-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon
+              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+            </polygon>
+          </svg>
+        </div>
+        <div class="mobile-brand-meta">
+          <span class="brand-title">PerkPulse</span>
+          <span class="brand-tagline">Enterprise OS </span>
+        </div>
+      </div>
+      <button type="button" class="mobile-close-btn" id="mobileMenuCloseBtn" aria-label="Close Mobile Navigation">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Nav Items -->
+    <ul class="mobile-nav-body">
+      <!-- 1. Home Accordion (Click only, Active on Home 2) -->
+      <li class="mobile-nav-item">
+        <button type="button" class="mobile-nav-link active font-bold text-indigo-600 dark:text-indigo-400"
+          id="mobileHomeAccordionBtn" aria-expanded="false">
+          <span>Home</span>
+          <svg class="mobile-nav-arrow w-4 h-4 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+        <div class="mobile-accordion-content" id="mobileHomeAccordion">
+          <a href="index.html" class="mobile-sub-link">
+            <span>Home 1 (Retail Tech)</span>
+          </a>
+          <a href="home-2.html" class="mobile-sub-link active font-bold text-indigo-600 dark:text-indigo-400">
+            <span>Home 2 (Enterprise OS)</span>
+          </a>
+        </div>
+      </li>
+
+      <!-- 2. About (Mandatory) -->
+      <li class="mobile-nav-item">
+        <a href="about.html" class="mobile-nav-link">About</a>
+      </li>
+
+      <!-- 3. Features -->
+      <li class="mobile-nav-item">
+        <a href="features.html" class="mobile-nav-link">Features</a>
+      </li>
+
+      <!-- 4. Pricing -->
+      <li class="mobile-nav-item">
+        <a href="pricing.html" class="mobile-nav-link">Pricing</a>
+      </li>
+
+      <!-- 5. Contact -->
+      <li class="mobile-nav-item">
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+      </li>
+
+      <!-- 6. Dashboard -->
+      <li class="mobile-nav-item">
+        <a href="dashboard.html" class="mobile-nav-link">Dashboard</a>
+      </li>
+    </ul>
+
+    <div class="mobile-nav-footer">
+      <div class="mobile-controls-row">
+        <button type="button" class="mobile-control-btn js-rtl-toggle">
+          <span class="font-bold text-xs">RTL Mode</span>
+        </button>
+        <button type="button" class="mobile-control-btn js-theme-toggle">
+          <span class="dark:hidden">Dark Mode</span>
+          <span class="hidden dark:inline">Light Mode</span>
+        </button>
+      </div>
+      <div class="flex flex-col gap-2.5">
+        <a href="login.html" class="btn-primary w-full justify-center text-center py-2.5 text-sm">
+          <span>Get Started</span>
+          <svg class="w-4 h-4 ml-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+        <a href="login.html" class="mobile-login-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+            <polyline points="10 17 15 12 10 7"></polyline>
+            <line x1="15" y1="12" x2="3" y2="12"></line>
+          </svg>
+          <span>Client Login Portal</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       MAIN CONTENT: HOME 2 (Enterprise Loyalty OS - Exactly 7 Sections)
+       ========================================================================= -->
+  <main id="main-content">
+
+    <!-- =========================================================================
+         SECTION 1: GRAND HERO WITH FULL-BLEED BACKGROUND IMAGE & TELEMETRY
+         ========================================================================= -->
+    <section class="home-hero-fullscreen" id="hero-os">
+      <!-- Full-Bleed Background Image -->
+      <div class="absolute inset-0 z-0">
+        <img src="assets/images/hero/p7.jpg" alt="PerkPulse Global Retail Enterprise Loyalty Cloud Operations Center"
+          class="w-full h-full object-cover object-center" width="1920" height="1080" fetchpriority="high">
+        <!-- Crisp Contrast Overlay - Preserves High Background Image Visibility -->
+        <div class="absolute inset-0 bg-white/20 dark:bg-black/65 transition-colors duration-300"></div>
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-white/90 via-transparent to-white/60 dark:from-black/95 dark:via-transparent dark:to-black/80 transition-colors duration-300">
+        </div>
+      </div>
+
+      <!-- Hero Content Layered Directly on Top of the Background Image -->
+      <div class="site-container relative z-10 text-center py-6">
+
+        <!-- Ambient center backing light for perfect text legibility -->
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-80 bg-white/65 dark:bg-slate-950/70 rounded-full blur-3xl pointer-events-none -z-10">
+        </div>
+
+        <!-- Glowing System Status Badge -->
+        <div
+          class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 dark:bg-indigo-500/20 border border-slate-300 dark:border-indigo-400/30 backdrop-blur-md mb-6 shadow-md">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse"></span>
+          <span class="text-xs sm:text-sm font-bold tracking-wide text-indigo-900 dark:text-indigo-200">
+            Multi-Tenant Retail Operating Cloud • 99.999% SLA
+          </span>
+        </div>
+
+        <!-- Main Headline -->
+        <h1
+          class="text-3xl sm:text-5xl md:text-6xl font-black text-slate-950 dark:text-white tracking-tight leading-tight max-w-4xl mx-auto mb-6 drop-shadow-sm dark:drop-shadow-md">
+          The Headless Loyalty Engine Built For <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-700 dark:from-indigo-300 dark:via-indigo-400 dark:to-purple-400">Global
+            Enterprises</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p
+          class="text-base sm:text-lg md:text-xl text-slate-900 dark:text-slate-200 font-semibold max-w-2xl mx-auto mb-8 leading-relaxed drop-shadow-sm">
+          Sync real-time rewards, instant cashback, and dynamic tiers across 5,000+ POS terminals with sub-50ms speed.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 mb-12 max-w-md sm:max-w-none mx-auto">
+          <a href="login.html" class="btn-primary w-full sm:w-auto text-center justify-center shadow-lg shadow-indigo-600/30">
+            <span>Deploy Enterprise OS</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="dashboard.html"
+            class="btn-secondary w-full sm:w-auto text-center justify-center bg-white/90 dark:bg-slate-900/80 border-slate-300 dark:border-slate-700 text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 backdrop-blur-md shadow-sm">
+            <span>Live Console Demo</span>
+          </a>
+        </div>
+
+        <!-- Sleek Telemetry Metrics Strip On Top of Image -->
+        <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
+          <div
+            class="p-4 rounded-xl bg-white/90 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/60 backdrop-blur-md flex items-center gap-3.5 shadow-md dark:shadow-2xl">
+            <div
+              class="w-10 h-10 rounded-lg bg-emerald-500/15 dark:bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+              <span class="w-3 h-3 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse"></span>
+            </div>
+            <div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 font-mono font-medium">Throughput &amp; Latency
+              </div>
+              <div class="text-sm font-bold text-slate-900 dark:text-white">12,840 Tx/s <span
+                  class="text-indigo-600 dark:text-indigo-400 font-mono text-xs font-normal">18ms Avg</span></div>
+            </div>
+          </div>
+
+          <div
+            class="p-4 rounded-xl bg-white/90 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/60 backdrop-blur-md flex items-center gap-3.5 shadow-md dark:shadow-2xl">
+            <div
+              class="w-10 h-10 rounded-lg bg-indigo-500/15 dark:bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shrink-0">
+              <svg class="w-5 h-5 text-indigo-600 dark:text-indigo-400" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 font-mono font-medium">POS Synchronization</div>
+              <div class="text-sm font-bold text-slate-900 dark:text-white">Zero DB Desync <span
+                  class="text-emerald-600 dark:text-emerald-400 text-xs font-medium">Active</span></div>
+            </div>
+          </div>
+
+          <div
+            class="p-4 rounded-xl bg-white/90 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/60 backdrop-blur-md flex items-center gap-3.5 shadow-md dark:shadow-2xl">
+            <div
+              class="w-10 h-10 rounded-lg bg-purple-500/15 dark:bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-600 dark:text-purple-400 shrink-0">
+              <svg class="w-5 h-5 text-purple-600 dark:text-purple-400" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                <line x1="6" y1="18" x2="6.01" y2="18"></line>
+              </svg>
+            </div>
+            <div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 font-mono font-medium">Cluster Node</div>
+              <div class="text-sm font-bold text-slate-900 dark:text-white">us-east.prod <span
+                  class="text-slate-500 dark:text-slate-400 font-mono text-xs">v4.18.2</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 2: ENTERPRISE BENTO BOX ARCHITECTURE (4 Distinct Tiles)
+         ========================================================================= -->
+    <section class="py-16 md:py-24 border-b border-slate-200 dark:border-neutral-900" id="bento-architecture">
+      <div class="site-container">
+
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="section-badge">
+            <svg class="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            Composable Architecture
+          </span>
+          <h2 class="section-title text-black dark:text-white">
+            Engineered For High-Concurrency Retail Workloads
+          </h2>
+          <p class="section-subtitle text-black dark:text-white font-semibold mx-auto">
+            Plugs into your existing register software, ERP, e-commerce, and data lakes.
+          </p>
+        </div>
+
+        <!-- 4 Bento Grid Tiles -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+
+          <!-- Tile 1: Large Span-2 Feature Tile with Code Graphic -->
+          <div class="md:col-span-2 bento-card">
+            <div>
+              <div class="bento-badge-row">
+                <span
+                  class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
+                  REST &amp; GraphQL Endpoints
+                </span>
+              </div>
+              <div class="bento-title-row">
+                <h3 class="text-xl sm:text-2xl font-bold text-black dark:text-white leading-tight">
+                  Unified Headless Loyalty API
+                </h3>
+              </div>
+              <div class="bento-desc-row">
+                <p class="text-sm text-black dark:text-white font-semibold leading-relaxed">
+                  Single API to issue points, trigger tier perks, and execute basket redemptions across all devices.
+                </p>
+              </div>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-200 dark:border-neutral-800 mt-5">
+              <img src="assets/images/sections/p8.jpg" alt="Developer coding high performance headless loyalty API"
+                class="w-full h-48 sm:h-56 object-cover" width="800" height="400" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Tile 2: Contactless Mobile Pass Wallet -->
+          <div class="bento-card">
+            <div>
+              <div class="bento-badge-row">
+                <span
+                  class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+                  Zero App Downloads
+                </span>
+              </div>
+              <div class="bento-title-row">
+                <h3 class="text-xl sm:text-2xl font-bold text-black dark:text-white leading-tight">
+                  Apple &amp; Google Wallet
+                </h3>
+              </div>
+              <div class="bento-desc-row">
+                <p class="text-sm text-black dark:text-white font-semibold leading-relaxed">
+                  Dynamic contactless NFC passes with automatic geolocation push notifications near retail stores.
+                </p>
+              </div>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-200 dark:border-neutral-800 mt-5">
+              <img src="assets/images/sections/p9.jpg" alt="Contactless smartphone payment pass"
+                class="w-full h-48 sm:h-56 object-cover" width="600" height="350" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Tile 3: Real-Time Webhook Engine -->
+          <div class="bento-card">
+            <div>
+              <div class="bento-badge-row">
+                <span
+                  class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
+                  Real-Time Streaming
+                </span>
+              </div>
+              <div class="bento-title-row">
+                <h3 class="text-xl sm:text-2xl font-bold text-black dark:text-white leading-tight">
+                  Sub-50ms Webhooks
+                </h3>
+              </div>
+              <div class="bento-desc-row">
+                <p class="text-sm text-black dark:text-white font-semibold leading-relaxed">
+                  Subscribe to point burn events, tier promotions, and coupon activations with automated retry policies.
+                </p>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3 text-center mt-5">
+              <div
+                class="p-3 rounded-lg bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800">
+                <div class="text-lg font-black text-indigo-600 dark:text-indigo-400">&lt; 50ms</div>
+                <div class="text-xs font-bold text-black dark:text-white">Latency</div>
+              </div>
+              <div
+                class="p-3 rounded-lg bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800">
+                <div class="text-lg font-black text-emerald-500">99.99%</div>
+                <div class="text-xs font-bold text-black dark:text-white">Delivery</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tile 4: Multi-Tenant Cloud Architecture -->
+          <div class="md:col-span-2 bento-card">
+            <div>
+              <div class="bento-badge-row justify-between">
+                <span
+                  class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-amber-50 dark:bg-amber-950 text-amber-600 dark:text-amber-300 border border-amber-200 dark:border-amber-800">
+                  SOC2 Type II Certified
+                </span>
+                <span
+                  class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-extrabold text-black dark:text-white bg-slate-100 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800">
+                  AES-256 Encrypted
+                </span>
+              </div>
+              <div class="bento-title-row">
+                <h3 class="text-xl sm:text-2xl font-bold text-black dark:text-white leading-tight">
+                  Multi-Tenant Vault &amp; Ledger
+                </h3>
+              </div>
+              <div class="bento-desc-row">
+                <p class="text-sm text-black dark:text-white font-semibold leading-relaxed">
+                  Isolated brand vaults with immutable cryptographic ledger entries for every transaction.
+                </p>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center mt-5">
+              <div
+                class="p-3 rounded-lg bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800">
+                <div class="text-lg font-black text-indigo-600 dark:text-indigo-400">100%</div>
+                <div class="text-xs font-bold text-black dark:text-white">Audit Trail</div>
+              </div>
+              <div
+                class="p-3 rounded-lg bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800">
+                <div class="text-lg font-black text-emerald-500">Zero</div>
+                <div class="text-xs font-bold text-black dark:text-white">Data Leakage</div>
+              </div>
+              <div
+                class="p-3 rounded-lg bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800">
+                <div class="text-lg font-black text-indigo-600 dark:text-indigo-400">GDPR</div>
+                <div class="text-xs font-bold text-black dark:text-white">Compliant</div>
+              </div>
+              <div
+                class="p-3 rounded-lg bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800">
+                <div class="text-lg font-black text-emerald-500">ISO</div>
+                <div class="text-xs font-bold text-black dark:text-white">27001 Ready</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 3: GLOBAL RETAIL FLEET SYNCHRONIZATION (Map & Node Clusters)
+         ========================================================================= -->
+    <section class="py-16 md:py-24 border-b border-slate-200 dark:border-neutral-900" id="global-fleet">
+      <div class="site-container">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+          <!-- Left Column: Regional Node Status Cards (Strictly Even Heights) -->
+          <div class="lg:col-span-6 space-y-4">
+            <span class="section-badge">
+              <svg class="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                </path>
+              </svg>
+              Multi-Region Store Fleet
+            </span>
+            <h2 class="section-title text-black dark:text-white">
+              Instant Sync Across 5,000+ Retail Nodes
+            </h2>
+            <p class="section-subtitle text-black dark:text-white font-semibold pb-2">
+              Syncs legacy terminals, modern tablet POS, and web carts with zero balance drift.
+            </p>
+
+            <!-- Node Card 1 -->
+            <div class="fleet-node-card flex items-center justify-between">
+              <div>
+                <div class="text-sm font-bold text-black dark:text-white">North America Cluster</div>
+                <div class="text-xs font-semibold text-black dark:text-white">1,820 Active Flagships </div>
+              </div>
+              <div class="text-right">
+                <span class="inline-flex items-center gap-1.5 text-xs font-black text-emerald-500">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  12ms Sync
+                </span>
+                <div class="text-[11px] font-bold text-black dark:text-white">Status: Normal</div>
+              </div>
+            </div>
+
+            <!-- Node Card 2 -->
+            <div class="fleet-node-card flex items-center justify-between">
+              <div>
+                <div class="text-sm font-bold text-black dark:text-white">EMEA Retail Operations</div>
+                <div class="text-xs font-semibold text-black dark:text-white">1,140 Boutiques & Concessions</div>
+              </div>
+              <div class="text-right">
+                <span class="inline-flex items-center gap-1.5 text-xs font-black text-emerald-500">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  18ms Sync
+                </span>
+                <div class="text-[11px] font-bold text-black dark:text-white">Status: Normal</div>
+              </div>
+            </div>
+
+            <!-- Node Card 3 -->
+            <div class="fleet-node-card flex items-center justify-between">
+              <div>
+                <div class="text-sm font-bold text-black dark:text-white">APAC Flagship Network</div>
+                <div class="text-xs font-semibold text-black dark:text-white">890 Outlets & Pop-up Kiosks</div>
+              </div>
+              <div class="text-right">
+                <span class="inline-flex items-center gap-1.5 text-xs font-black text-emerald-500">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  22ms Sync
+                </span>
+                <div class="text-[11px] font-bold text-black dark:text-white">Status: Normal</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Visual Retail Store Image Showcase -->
+          <div class="lg:col-span-6">
+            <div class="relative rounded-2xl overflow-hidden border border-slate-300 dark:border-neutral-800 shadow-xl">
+              <img src="assets/images/sections/p10.jpg"
+                alt="Luxury retail clothing boutique with synchronized PerkPulse loyalty registers"
+                class="w-full h-[440px] object-cover" width="1200" height="800" loading="lazy">
+
+              <!-- Floating Live Identification Badge -->
+              <div
+                class="absolute top-4 left-4 bg-black/85 backdrop-blur-md px-3.5 py-2 rounded-lg border border-neutral-700 text-xs font-mono font-bold text-white flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                Terminal #8492 Online • Live Telemetry
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 4: LOYALTY PROGRAM BENEFITS & ENGAGING RETAIL-TECH SHOWCASE
+         ========================================================================= -->
+    <section class="py-16 md:py-24 border-b border-slate-200 dark:border-neutral-900" id="loyalty-benefits">
+      <div class="site-container">
+
+        <!-- Section Header -->
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="section-badge">
+            <svg class="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+              </polygon>
+            </svg>
+            Loyalty Program Benefits
+          </span>
+          <h2 class="section-title text-black dark:text-white">
+            Engaging Retail-Tech Loyalty Program Benefits
+          </h2>
+          <p class="section-subtitle text-black dark:text-white font-semibold mx-auto">
+            Drive repeat store visits with instant checkout discounts, VIP perks, and digital passes.
+          </p>
+        </div>
+
+        <!-- Engaging Retail-Tech Split Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+
+          <!-- Left Column (5 cols): Live In-Store Member Perks Hub -->
+          <div class="lg:col-span-5 flex flex-col justify-between">
+            <div
+              class="relative rounded-2xl overflow-hidden border border-slate-300 dark:border-neutral-800 shadow-xl group h-full min-h-[420px] flex flex-col justify-end p-6">
+              <img src="assets/images/sections/p39.jpg"
+                alt="Loyalty member enjoying instant rewards perks at modern retail checkout"
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                width="800" height="700" loading="lazy">
+
+              <!-- Gradient Overlay for High Contrast -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/15"></div>
+
+              <!-- Top Live Status Badge -->
+              <div class="absolute top-4 left-4 right-4 flex items-center justify-between">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-emerald-500/90 text-white backdrop-blur-md shadow-md">
+                  <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                  Live Perks Active
+                </span>
+                <span
+                  class="px-2.5 py-1 rounded-lg text-[11px] font-mono font-bold bg-black/60 text-white backdrop-blur-md border border-white/10">
+                  NFC Tap &amp; Go
+                </span>
+              </div>
+
+              <!-- Content Inside Visual Hub -->
+              <div class="relative z-10 space-y-3">
+                <div
+                  class="inline-block px-2.5 py-1 rounded-md text-[11px] font-black uppercase tracking-wider text-amber-300 bg-amber-500/20 border border-amber-400/30 backdrop-blur-md">
+                  VIP Gold Tier Milestone
+                </div>
+                <h3 class="text-xl sm:text-2xl font-black text-white leading-tight">
+                  Instant Checkout Delight
+                </h3>
+                <p class="text-xs sm:text-sm text-neutral-200 font-medium">
+                  Automatic basket cashback, point multipliers, and VIP perks triggered with zero cashier delay.
+                </p>
+
+                <!-- Live Metrics Pills Row -->
+                <div class="pt-3 border-t border-white/20 grid grid-cols-3 gap-2 text-center">
+                  <div class="p-2 rounded-lg bg-white/10 backdrop-blur-md">
+                    <div class="text-xs font-black text-white">+38%</div>
+                    <div class="text-[10px] text-neutral-300 font-semibold">Basket Size</div>
+                  </div>
+                  <div class="p-2 rounded-lg bg-white/10 backdrop-blur-md">
+                    <div class="text-xs font-black text-emerald-400">&lt;10ms</div>
+                    <div class="text-[10px] text-neutral-300 font-semibold">POS Accrual</div>
+                  </div>
+                  <div class="p-2 rounded-lg bg-white/10 backdrop-blur-md">
+                    <div class="text-xs font-black text-amber-300">4.2x</div>
+                    <div class="text-[10px] text-neutral-300 font-semibold">Retention</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column (7 cols): 4 Retail-Tech Benefit Cards (2x2 Grid) -->
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5 items-stretch">
+
+            <!-- Benefit 1: Instant Checkout Cashback -->
+            <div class="benefit-card">
+              <div class="flex flex-col flex-grow justify-between mb-4">
+                <div class="flex items-center justify-between mb-3">
+                  <div
+                    class="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                      </path>
+                    </svg>
+                  </div>
+                  <span
+                    class="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 shrink-0">
+                    Direct Cash Offsets
+                  </span>
+                </div>
+                <h3
+                  class="text-base sm:text-lg font-bold text-black dark:text-white mb-2 min-h-[44px] flex items-center">
+                  Instant Basket Cashback
+                </h3>
+                <p
+                  class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 font-medium leading-relaxed min-h-[64px] flex items-start">
+                  Points convert directly to cart dollar discounts at checkout with zero cashier delay.
+                </p>
+              </div>
+              <div
+                class="pt-3 border-t border-slate-200 dark:border-neutral-800 flex items-center justify-between gap-2 text-xs mt-auto">
+                <span class="text-neutral-500 dark:text-neutral-400 font-bold text-[11px] sm:text-xs shrink-0">Shopper
+                  Benefit</span>
+                <span
+                  class="text-emerald-600 dark:text-emerald-400 font-black text-[11px] sm:text-xs text-right whitespace-nowrap">Zero
+                  Friction</span>
+              </div>
+            </div>
+
+            <!-- Benefit 2: Tiered VIP Ladders -->
+            <div class="benefit-card">
+              <div class="flex flex-col flex-grow justify-between mb-4">
+                <div class="flex items-center justify-between mb-3">
+                  <div
+                    class="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800 flex items-center justify-center text-amber-600 dark:text-amber-400 shrink-0">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z">
+                      </path>
+                    </svg>
+                  </div>
+                  <span
+                    class="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-50 dark:bg-amber-950/80 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800 shrink-0">
+                    VIP Milestones
+                  </span>
+                </div>
+                <h3
+                  class="text-base sm:text-lg font-bold text-black dark:text-white mb-2 min-h-[44px] flex items-center">
+                  Automated Tier Ladders
+                </h3>
+                <p
+                  class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 font-medium leading-relaxed min-h-[64px] flex items-start">
+                  Automatic progression across tiers with point multipliers and VIP concierge perks.
+                </p>
+              </div>
+              <div
+                class="pt-3 border-t border-slate-200 dark:border-neutral-800 flex items-center justify-between gap-2 text-xs mt-auto">
+                <span class="text-neutral-500 dark:text-neutral-400 font-bold text-[11px] sm:text-xs shrink-0">Shopper
+                  Benefit</span>
+                <span
+                  class="text-amber-600 dark:text-amber-400 font-black text-[11px] sm:text-xs text-right whitespace-nowrap">Tier
+                  Multipliers</span>
+              </div>
+            </div>
+
+            <!-- Benefit 3: Native Mobile Wallet Passes -->
+            <div class="benefit-card">
+              <div class="flex flex-col flex-grow justify-between mb-4">
+                <div class="flex items-center justify-between mb-3">
+                  <div
+                    class="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shrink-0">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                    </svg>
+                  </div>
+                  <span
+                    class="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded bg-indigo-50 dark:bg-indigo-950/80 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 shrink-0">
+                    Zero App Required
+                  </span>
+                </div>
+                <h3
+                  class="text-base sm:text-lg font-bold text-black dark:text-white mb-2 min-h-[44px] flex items-center">
+                  Apple &amp; Google Wallet
+                </h3>
+                <p
+                  class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 font-medium leading-relaxed min-h-[64px] flex items-start">
+                  Contactless passes live on smartphone screens with proximity notifications near stores.
+                </p>
+              </div>
+              <div
+                class="pt-3 border-t border-slate-200 dark:border-neutral-800 flex items-center justify-between gap-2 text-xs mt-auto">
+                <span class="text-neutral-500 dark:text-neutral-400 font-bold text-[11px] sm:text-xs shrink-0">Shopper
+                  Benefit</span>
+                <span
+                  class="text-indigo-600 dark:text-indigo-400 font-black text-[11px] sm:text-xs text-right whitespace-nowrap">1-Tap
+                  Passes</span>
+              </div>
+            </div>
+
+            <!-- Benefit 4: Gamified Drops & Missions -->
+            <div class="benefit-card">
+              <div class="flex flex-col flex-grow justify-between mb-4">
+                <div class="flex items-center justify-between mb-3">
+                  <div
+                    class="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800 flex items-center justify-center text-purple-600 dark:text-purple-400 shrink-0">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z">
+                      </path>
+                    </svg>
+                  </div>
+                  <span
+                    class="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded bg-purple-50 dark:bg-purple-950/80 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800 shrink-0">
+                    Surprise &amp; Delight
+                  </span>
+                </div>
+                <h3
+                  class="text-base sm:text-lg font-bold text-black dark:text-white mb-2 min-h-[44px] flex items-center">
+                  Surprise Drops &amp; Perks
+                </h3>
+                <p
+                  class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 font-medium leading-relaxed min-h-[64px] flex items-start">
+                  Personalized birthday points, shopping streaks, and double-reward SKU challenges.
+                </p>
+              </div>
+              <div
+                class="pt-3 border-t border-slate-200 dark:border-neutral-800 flex items-center justify-between gap-2 text-xs mt-auto">
+                <span class="text-neutral-500 dark:text-neutral-400 font-bold text-[11px] sm:text-xs shrink-0">Shopper
+                  Benefit</span>
+                <span
+                  class="text-purple-600 dark:text-purple-400 font-black text-[11px] sm:text-xs text-right whitespace-nowrap">+54%
+                  Lift</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 5: AI RETENTION ENGINE (3 Symmetrical Even Cards)
+         ========================================================================= -->
+    <section class="py-16 md:py-24 border-b border-slate-200 dark:border-neutral-900" id="ai-engine">
+      <div class="site-container">
+
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="section-badge">
+            <svg class="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path
+                d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83">
+              </path>
+            </svg>
+            Predictive Retention Intelligence
+          </span>
+          <h2 class="section-title text-black dark:text-white">
+            Autonomous Machine Learning Retention Models
+          </h2>
+          <p class="section-subtitle text-black dark:text-white font-semibold mx-auto">
+            Train proprietary algorithms on store transaction logs to forecast churn and automate bonus rewards.
+          </p>
+        </div>
+
+        <!-- 3 Symmetrical Even Cards with Image Headers -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+
+          <!-- Card 1 -->
+          <div class="ai-feature-card">
+            <img src="assets/images/sections/home2-ai-predict.jpg"
+              alt="Retail Churn Prediction and Retention Analytics Dashboard" class="ai-feature-img" width="800"
+              height="400" loading="lazy">
+            <div class="ai-feature-body">
+              <div>
+                <span class="text-xs font-black uppercase tracking-wider text-indigo-600 dark:text-indigo-400">Churn
+                  Prevention</span>
+                <h3 class="text-lg font-bold text-black dark:text-white mt-1 mb-2">Predictive Lapse Detection</h3>
+                <p class="text-xs sm:text-sm text-black dark:text-white font-semibold leading-relaxed">
+                  Forecasts member lapse risk 14 days in advance to deliver targeted retention offers.
+                </p>
+              </div>
+              <div
+                class="pt-4 mt-4 border-t border-slate-200 dark:border-neutral-800 flex items-center justify-between text-xs font-bold text-black dark:text-white">
+                <span>Retention Lift</span>
+                <span class="text-emerald-500 font-black">+34% Avg</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="ai-feature-card">
+            <img src="assets/images/sections/home2-ai-segments.jpg"
+              alt="Retail Customer Segmentation and Cohort Clustering Heatmap" class="ai-feature-img" width="800"
+              height="400" loading="lazy">
+            <div class="ai-feature-body">
+              <div>
+                <span
+                  class="text-xs font-black uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Real-Time
+                  Cohorts</span>
+                <h3 class="text-lg font-bold text-black dark:text-white mt-1 mb-2">Dynamic Affinity Clusters</h3>
+                <p class="text-xs sm:text-sm text-black dark:text-white font-semibold leading-relaxed">
+                  Segments shoppers dynamically by item affinity, visit hours, and basket size.
+                </p>
+              </div>
+              <div
+                class="pt-4 mt-4 border-t border-slate-200 dark:border-neutral-800 flex items-center justify-between text-xs font-bold text-black dark:text-white">
+                <span>Model Latency</span>
+                <span class="text-emerald-500 font-black">0.1s Scoring</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="ai-feature-card">
+            <img src="assets/images/sections/home2-ai-campaigns.jpg"
+              alt="Retail POS Counter Terminal displaying 2X Bonus Points Multiplier Reward" class="ai-feature-img"
+              width="800" height="400" loading="lazy">
+            <div class="ai-feature-body">
+              <div>
+                <span class="text-xs font-black uppercase tracking-wider text-amber-600 dark:text-amber-400">Budget
+                  Optimization</span>
+                <h3 class="text-lg font-bold text-black dark:text-white mt-1 mb-2">Autonomous Multiplier</h3>
+                <p class="text-xs sm:text-sm text-black dark:text-white font-semibold leading-relaxed">
+                  Triggers 2X point multipliers during off-peak hours to boost checkout traffic.
+                </p>
+              </div>
+              <div
+                class="pt-4 mt-4 border-t border-slate-200 dark:border-neutral-800 flex items-center justify-between text-xs font-bold text-black dark:text-white">
+                <span>Campaign Return</span>
+                <span class="text-emerald-500 font-black">3.2x ROI</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 6: ENTERPRISE CLIENT SUCCESS CASE STUDIES (Dual Symmetrical Cards)
+         ========================================================================= -->
+    <section class="py-16 md:py-24 border-b border-slate-200 dark:border-neutral-900" id="case-studies">
+      <div class="site-container">
+
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="section-badge">
+            <svg class="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            Audited Client Results
+          </span>
+          <h2 class="section-title text-black dark:text-white">
+            Trusted By Leading Multi-Location Retail Brands
+          </h2>
+          <p class="section-subtitle text-black dark:text-white font-semibold mx-auto">
+            Real-world retention gains from multi-location retail brands powered by PerkPulse.
+          </p>
+        </div>
+
+        <!-- 3 Symmetrical Case Study Image Cards (Titles Above Images) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+
+          <!-- Case Study 1 -->
+          <div class="case-study-card group">
+            <div class="p-5 pb-3.5">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-black uppercase tracking-wider text-indigo-600 dark:text-indigo-400">Global
+                  Fashion</span>
+                <span
+                  class="text-xs font-bold text-emerald-500 bg-emerald-50 dark:bg-emerald-950 px-2 py-0.5 rounded border border-emerald-200 dark:border-emerald-800">+41%
+                  Repeat Orders</span>
+              </div>
+              <h3 class="text-lg font-bold text-black dark:text-white">
+                Maison Aurelia Luxury Boutiques
+              </h3>
+            </div>
+            <div class="relative overflow-hidden mt-auto">
+              <img src="assets/images/sections/home2-case-fashion.jpg" alt="Maison Aurelia Luxury Boutiques"
+                class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105" width="800"
+                height="450" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Case Study 2 -->
+          <div class="case-study-card group">
+            <div class="p-5 pb-3.5">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-black uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Grocery
+                  Retail</span>
+                <span
+                  class="text-xs font-bold text-emerald-500 bg-emerald-50 dark:bg-emerald-950 px-2 py-0.5 rounded border border-emerald-200 dark:border-emerald-800">8.4M
+                  Points Claimed</span>
+              </div>
+              <h3 class="text-lg font-bold text-black dark:text-white">
+                FreshHarbor Organic Supermarket
+              </h3>
+            </div>
+            <div class="relative overflow-hidden mt-auto">
+              <img src="assets/images/sections/home2-case-grocery.jpg"
+                alt="FreshHarbor Omnichannel Supermarket Checkout"
+                class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105" width="800"
+                height="450" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Case Study 3 -->
+          <div class="case-study-card group">
+            <div class="p-5 pb-3.5">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-black uppercase tracking-wider text-amber-600 dark:text-amber-400">Consumer
+                  Tech</span>
+                <span
+                  class="text-xs font-bold text-emerald-500 bg-emerald-50 dark:bg-emerald-950 px-2 py-0.5 rounded border border-emerald-200 dark:border-emerald-800">3.8x
+                  Member ROI</span>
+              </div>
+              <h3 class="text-lg font-bold text-black dark:text-white">
+                Tech & Life Flagship Electronics
+              </h3>
+            </div>
+            <div class="relative overflow-hidden mt-auto">
+              <img src="assets/images/sections/home2-case-tech.jpg" alt="Tech and Life Modern Electronics Store"
+                class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105" width="800"
+                height="450" loading="lazy">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 7: ENTERPRISE SLA & GUARANTEED ONBOARDING (Split Action Box)
+         ========================================================================= -->
+    <section class="py-16 md:py-24" id="enterprise-sla">
+      <div class="site-container">
+
+        <div class="sla-wrapper">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+            <!-- Left: SLA Guarantees -->
+            <div class="lg:col-span-7">
+              <span
+                class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-400/30 mb-4">
+                Enterprise Contract Guarantees
+              </span>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-4">
+                99.999% High Availability With Financial Penalty Backing
+              </h2>
+              <p class="text-slate-200 text-xs sm:text-sm font-semibold max-w-xl mb-6">
+                Your registers never stop processing rewards. We provide multi-cloud active-active redundancy with zero
+                scheduled maintenance downtime.
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-bold text-slate-100">
+                <div class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-emerald-400 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Zero-Downtime Failover</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-emerald-400 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>14-Day Rapid Setup</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-emerald-400 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Dedicated Lead Architect</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Direct Consultation Action Box -->
+            <div class="lg:col-span-5 bg-black/50 p-6 rounded-xl border border-neutral-700 text-center">
+              <h3 class="text-lg font-bold text-white mb-2">Schedule Architecture Review</h3>
+              <p class="text-xs text-slate-300 font-semibold mb-6">
+                Discuss POS protocol compatibility with our senior solutions engineers.
+              </p>
+              <div class="flex flex-col gap-3">
+                <a href="login.html" class="btn-primary w-full justify-center text-center">
+                  <span>Book 30-Min Session</span>
+                </a>
+                <a href="pricing.html" class="btn-secondary w-full justify-center text-center">
+                  <span>View Enterprise Pricing Tiers</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Shared Global Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+
+        <!-- QUADRANT 1 (Top-Left): Brand Atelier Column -->
+        <div class="footer-brand-col">
+          <a href="index.html" class="brand-link" aria-label="PerkPulse Home">
+            <div class="brand-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                </polygon>
+              </svg>
+            </div>
+            <div class="brand-name text-white">
+              Perk<span class="text-indigo-400">Pulse</span>
+            </div>
+          </a>
+          <p class="footer-tagline italic">
+            &ldquo;Autonomous retail loyalty infrastructure shaped for global high-concurrency commerce.&rdquo;
+          </p>
+          <p class="footer-desc">
+            Independent headless loyalty engine synchronizing member tiers, instant cashback calculation, and dynamic
+            rewards across 5,000+ retail points of sale.
+          </p>
+          <div class="footer-social-box flex items-center gap-2.5 pt-1">
+            <a href="#" class="footer-social-square" aria-label="Twitter">
+              <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                </path>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-square" aria-label="LinkedIn">
+              <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-square" aria-label="GitHub">
+              <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                </path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- QUADRANT 2 (Top-Right): Navigation Column -->
+        <div class="footer-nav-col">
+          <h2 class="footer-col-title">
+            <span class="text-indigo-400 mr-2 font-bold">&#8226;</span> NAVIGATION
+          </h2>
+          <ul class="footer-links-list">
+            <li><a href="index.html" class="footer-link">Home 1 (Retail Tech)</a></li>
+            <li><a href="home-2.html" class="footer-link">Home 2 (Enterprise OS)</a></li>
+            <li><a href="features.html" class="footer-link">Platform Features</a></li>
+            <li><a href="dashboard.html" class="footer-link">Client Dashboard</a></li>
+            <li><a href="pricing.html" class="footer-link">Pricing Plans</a></li>
+            <li><a href="about.html" class="footer-link">About PerkPulse</a></li>
+            <li><a href="contact.html" class="footer-link">Contact &amp; Enquiry</a></li>
+          </ul>
+        </div>
+
+        <!-- QUADRANT 3 (Bottom-Left): Platform Architecture Column -->
+        <div class="footer-platform-col">
+          <h2 class="footer-col-title">
+            <span class="text-indigo-400 mr-2 font-bold">&#8226;</span> PLATFORM ARCHITECTURE
+          </h2>
+          <div class="space-y-3.5 mb-4">
+            <div>
+              <div class="text-xs font-bold text-white uppercase tracking-wider">Omnichannel POS Sync</div>
+              <div class="text-xs text-slate-400 leading-relaxed">Sub-50ms latency across 5,000+ retail registers</div>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white uppercase tracking-wider">Dynamic Tier &amp; Ladder Engine</div>
+              <div class="text-xs text-slate-400 leading-relaxed">Real-time cashback calculation &amp; zero desync</div>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white uppercase tracking-wider">Enterprise Security &amp; Ledger</div>
+              <div class="text-xs text-slate-400 leading-relaxed">SOC2 Type II certified &amp; AES-256 encrypted</div>
+            </div>
+          </div>
+          <div
+            class="footer-status-pill inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-indigo-950/80 border border-indigo-500/30 text-[11px] font-mono font-bold text-indigo-200">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            SYSTEM SLA: 99.999% ACTIVE
+          </div>
+        </div>
+
+        <!-- QUADRANT 4 (Bottom-Right): Studio & Headquarters Column -->
+        <div class="footer-enterprise-col">
+          <h2 class="footer-col-title">
+            <span class="text-indigo-400 mr-2 font-bold">&#8226;</span> GLOBAL HEADQUARTERS
+          </h2>
+          <div class="space-y-3.5 mb-4">
+            <div>
+              <div class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 text-indigo-400 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                LOCATION
+              </div>
+              <div class="text-xs text-slate-400 leading-relaxed pl-5">
+                PerkPulse Cloud Infrastructure<br>
+                100 Montgomery St, Suite 2400<br>
+                San Francisco, CA 94104
+              </div>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 text-indigo-400 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                OPERATIONS &amp; SRE SUPPORT
+              </div>
+              <div class="text-xs text-slate-400 pl-5 leading-relaxed">
+                24/7/365 Autonomous Cloud Monitoring<br>
+                Dedicated Enterprise Support Desk
+              </div>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 text-indigo-400 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                  </path>
+                </svg>
+                PHONE &amp; EMAIL
+              </div>
+              <div class="text-xs text-slate-400 pl-5 leading-relaxed">
+                +1 (800) 550-PERK<br>
+                enterprise@perkpulse.com
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom Bar (Legal Links & Back to Top) -->
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 PerkPulse SaaS Technologies Inc. All rights reserved.
+        </div>
+        <div class="flex items-center gap-5 sm:gap-6 flex-wrap">
+          <a href="contact.html" class="footer-link">Privacy Policy</a>
+          <a href="contact.html" class="footer-link">Terms of Use</a>
+          <a href="contact.html" class="footer-link">Security &amp; SLA</a>
+          <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+            class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-all hover:scale-105 ml-1"
+            aria-label="Back to top">
+            &uarr;
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll To Top Button -->
+  <button type="button" id="scroll-to-top" class="scroll-top-btn" aria-label="Scroll back to top" title="Scroll to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+  </button>
+
+  <!-- Core JavaScript -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
