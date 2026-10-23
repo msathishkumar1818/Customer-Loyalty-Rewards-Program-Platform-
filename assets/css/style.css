@@ -2781,11 +2781,15 @@ html.dark .contact-cta-wrapper {
    BUSINESS CLIENT DASHBOARD: REWARD TIERS, ENGAGEMENT & REDEMPTIONS
    ========================================================================== */
 
-/* Top Application Bar */
+/* Top Application Bar - Fixed to viewport so it never scrolls away */
 .dashboard-topbar {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 40;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 61px;
+  z-index: 50;
   background: #ffffff;
   border-bottom: 1px solid var(--border-color);
   padding: 0.75rem 1.5rem;
@@ -2794,11 +2798,21 @@ html.dark .contact-cta-wrapper {
   justify-content: space-between;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   gap: 0.75rem;
+  box-sizing: border-box;
 }
 
 html.dark .dashboard-topbar {
   background: #000000;
   border-bottom-color: #262626;
+}
+
+/* Dashboard App Layout - Offset for Fixed 61px Topbar */
+.dashboard-app-layout {
+  padding-top: 61px;
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .dashboard-portal-title {
@@ -2952,24 +2966,20 @@ html.dark .theme-icon-moon {
   display: none !important;
 }
 
-/* Tailwind-like display utilities for dark/light icons */
-.action-icon-btn svg.hidden,
-.hidden {
+/* Display utilities for dark/light icons */
+.action-icon-btn svg.hidden {
   display: none !important;
 }
 
-.action-icon-btn svg.block,
-.block {
+.action-icon-btn svg.block {
   display: block !important;
 }
 
-html.dark .action-icon-btn svg.dark\:hidden,
-html.dark .dark\:hidden {
+html.dark .action-icon-btn svg.dark\:hidden {
   display: none !important;
 }
 
-html.dark .action-icon-btn svg.dark\:block,
-html.dark .dark\:block {
+html.dark .action-icon-btn svg.dark\:block {
   display: block !important;
 }
 
@@ -3091,12 +3101,20 @@ html.dark .dashboard-main-content {
   .dash-sidebar-backdrop {
     display: none !important;
   }
+
+  .dashboard-topbar .dash-header-utility {
+    display: inline-flex !important;
+  }
 }
 
 /* Mobile & Tablet Drawer Layout (< 1024px) */
 @media (max-width: 1023px) {
   .dashboard-topbar {
     padding: 0.55rem 0.85rem;
+  }
+
+  .dashboard-topbar .dash-header-utility {
+    display: none !important;
   }
 
   .dashboard-sidebar {
